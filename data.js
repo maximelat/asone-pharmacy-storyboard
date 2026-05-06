@@ -9,7 +9,7 @@ const HOSTS = {
   david:  { initials:'DV', label:'David',  bio:'Pharmacist · Lyon'  },
   kai:    { initials:'KA', label:'Kai',    bio:'Pharmacist · Singapore' },
   sofia:  { initials:'SF', label:'Sofia',  bio:'Pharmacist · Madrid' },
-  team:   { initials:'AS', label:'The 4 hosts', bio:'Multicultural cast' },
+  team:   { initials:'AM', label:'Amina', bio:'Lead host · global module' },
 };
 
 // Spanish cast: Sofia leads ALL chapters (single-narrator pivot, default cast = ES)
@@ -18,7 +18,7 @@ const HOSTS_ES = {
   david:  HOSTS.sofia,
   kai:    HOSTS.sofia,
   sofia:  HOSTS.sofia,
-  team:   { initials:'SF', label:'Sofia', bio:'Farmacéutica · Madrid (ES Solo Cast)' },
+  team:   { initials:'SF', label:'Sofia', bio:'Farmacéutica · Madrid (ES solo cast)' },
 };
 
 const REF = {
@@ -56,11 +56,11 @@ const REF = {
 // 5 developed chapters
 const CHAPTERS = [
   {
-    id:1, slug:'welcome', host:'team', scriptRef:'Part #1 — Welcome video',
+    id:1, slug:'welcome', host:'amina', scriptRef:'Part #1 — Welcome video',
     tag:'Cold open',
     title:{ en:'Welcome to the As One pharmacy floor',
             es:'Bienvenidos a la farmacia As One' },
-    voEN:`Welcome to Servier's Pharmacy Global E-Learning, powered by Daflon and the new As One strategy. I'm Amina. Hi, David here. Hey everyone, I'm Kai. And last but not least, Sofia's here! Together, we'll be your hosts on this cardiometabolic and venous voyage — a journey to help you turn comorbid patients at the counter from a challenge into an opportunity.`,
+    voEN:`Welcome to Servier's Pharmacy Global E-Learning, powered by Daflon and the new As One strategy. I'm Amina, your guide on this cardiometabolic and venous voyage — a journey to help you turn comorbid patients at the counter from a challenge into an opportunity.`,
     voES:`Bienvenidos a la formación farmacéutica As One de Servier, impulsada por la herencia Daflon. Soy Sofia y seré vuestra única guía a través de este recorrido cardiometabólico y venoso — para que el paciente pluripatológico pase de ser un reto a ser una oportunidad de cuidado en el mostrador.`,
     refs:[ {tag:'SCRIPT', text:'Source script: PART #1 — OPENING VIDEO. No numbered scientific references are cited in this opening section.'} ],
     takeaway:{ en:'Set the tone. Pharmacists are not order-takers — they are the patient\'s partner of choice for control & adherence.',
@@ -69,7 +69,7 @@ const CHAPTERS = [
     accSlot:'Knowledge assessment placeholder · 0 questions (intro)'
   },
   {
-    id:2, slug:'global', host:'team', scriptRef:'Part #2 — Global video (Daflon legacy)',
+    id:2, slug:'global', host:'amina', scriptRef:'Part #2 — Global video (Daflon legacy)',
     tag:'Heritage reel',
     title:{ en:'A 55-year story across 17 languages',
             es:'Una historia de 55 años en 17 idiomas' },
@@ -85,7 +85,7 @@ const CHAPTERS = [
     accSlot:'Knowledge assessment placeholder · 0 questions (heritage)'
   },
   {
-    id:3, slug:'venous-physiology', host:'david', scriptRef:'Part #3 — Venous physiology & pathophysiology',
+    id:3, slug:'venous-physiology', host:'amina', scriptRef:'Part #3 — Venous physiology & pathophysiology',
     tag:'Anatomy & physiology',
     title:{ en:'How blood climbs back up — valves, muscle pump & the inflamed vein',
             es:'Cómo regresa la sangre al corazón — válvulas, bomba muscular y la vena inflamada' },
@@ -111,7 +111,7 @@ const CHAPTERS = [
     accSlot:'10-question knowledge assessment · placeholder for affiliate LMS'
   },
   {
-    id:4, slug:'cvd', host:'sofia', scriptRef:'Part #4 — Chronic Venous Disease',
+    id:4, slug:'cvd', host:'amina', scriptRef:'Part #4 — Chronic Venous Disease',
     tag:'Disease module 1',
     title:{ en:'CVD — the silent 80%',
             es:'EVC — el 80% silencioso' },
@@ -139,7 +139,7 @@ const CHAPTERS = [
     accSlot:'10-question knowledge assessment · placeholder for affiliate LMS'
   },
   {
-    id:5, slug:'hemorrhoidal', host:'kai', scriptRef:'Part #5 — Hemorrhoidal disease',
+    id:5, slug:'hemorrhoidal', host:'amina', scriptRef:'Part #5 — Hemorrhoidal disease',
     tag:'Disease module 2',
     title:{ en:'Hemorrhoidal disease — out of the taboo, into the consultation',
             es:'Enfermedad hemorroidal — del tabú a la consulta' },
@@ -161,7 +161,7 @@ const CHAPTERS = [
 
 // 5 chapters under medical review (blurred)
 const BLURRED = [
-  { id:6, host:'team',
+  { id:6, host:'amina',
     title:{ en:'Servier Solutions — branded module',     es:'Soluciones Servier — módulo branded' },
     vo:    'MPFF · Daflon · perindopril-based SPCs · NOACs · differentiation by manufacturing.',
     badge: 'Medical review · Round 2' },
@@ -169,17 +169,17 @@ const BLURRED = [
     title:{ en:'Pharmaceutical intervention',           es:'Intervención farmacéutica' },
     vo:    'Pharmaceutical service · interpersonal communication · technical component (110 → 114).',
     badge: 'Medical review · Round 2' },
-  { id:8, host:'david',
+  { id:8, host:'amina',
     title:{ en:'OTC counter scenarios — 4 vignettes',   es:'Escenarios OTC — 4 viñetas' },
     vo:    'Real-world counter scenarios for OTC markets — chronic venous disease + comorbidities.',
     badge: 'Medical review · Round 2' },
-  { id:9, host:'kai',
+  { id:9, host:'amina',
     title:{ en:'Prescription scenarios — 4 vignettes',  es:'Escenarios con receta — 4 viñetas' },
     vo:    'Real-world scenarios for Rx markets — refilling, switch refusal, adherence reinforcement.',
     badge: 'Medical review · Round 2' },
-  { id:10, host:'team',
+  { id:10, host:'amina',
     title:{ en:'Final thoughts & As One pledge',        es:'Conclusiones y compromiso As One' },
-    vo:    'The four hosts close the journey. Pledge to control, adherence, persistence.',
+    vo:    'The lead host closes the journey. Pledge to control, adherence, persistence.',
     badge: 'Medical review · Round 2' },
 ];
 
