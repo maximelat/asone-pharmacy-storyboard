@@ -67,8 +67,8 @@ em{color:var(--gold);font-style:normal;font-weight:800}
 .btn.primary{background:linear-gradient(135deg,var(--gold),var(--tangerine));color:#0b0b1f}
 .btn.primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(244,184,90,.35)}
 .btn.ghost{background:transparent;color:var(--navy);border:1px solid var(--gold);padding:13px 25px}
-.hero .btn.ghost{color:#fff}
-.btn.ghost:hover{background:var(--gold);color:#0b0b1f}
+.hero .btn.ghost{background:#fff;color:var(--navy);border-color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.14)}
+.btn.ghost:hover{background:var(--gold);border-color:var(--gold);color:#fff}
 .hero-engines{display:flex;gap:10px;flex-wrap:wrap}
 .he-pill{font-family:var(--mono);font-size:.62rem;letter-spacing:1.6px;text-transform:uppercase;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;padding:7px 13px;border-radius:3px}
 @media(max-width:760px){.hero{padding:140px 24px 60px}.hero-meta{gap:22px}.hm-num{font-size:1.7rem}}

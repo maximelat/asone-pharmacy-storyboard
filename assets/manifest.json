@@ -12,10 +12,17 @@
     {
       "id": 2,
       "slug": "global",
-      "opening": "https://v3b.fal.media/files/b/0a990ea4/fHkuoEnbBoYh-y99SzD7q_QEyoQzhX.jpg",
+      "opening": "assets/scenes/scene-02-asone-charter-i2i.png",
       "closing": "https://v3b.fal.media/files/b/0a990ea4/l9nmy7__QB1OnJjI62xsq_Pb8z8hkw.jpg",
-      "es_opening": "https://v3b.fal.media/files/b/0a990f00/qqWjnpRUggshyTtDERlwO_BActXsgv.jpg",
-      "es_closing": "https://v3b.fal.media/files/b/0a990f01/trZwQ-7y2NLbENiC6cizT_yBvucyK7.jpg"
+      "es_opening": "assets/scenes/scene-02-asone-charter-i2i.png",
+      "es_closing": "https://v3b.fal.media/files/b/0a990f01/trZwQ-7y2NLbENiC6cizT_yBvucyK7.jpg",
+      "asone_charter_i2i": {
+        "model": "openai/gpt-image-2",
+        "endpoint": "images/edits",
+        "quality": "high",
+        "source": "Capture_d_e_cran_2026-05-01_a__21.03.03-aae0f3b1-c3c0-4f8d-a68c-13feea8d5971.png",
+        "generated_at": "2026-05-06T01:51:43.130Z"
+      }
     },
     {
       "id": 3,
