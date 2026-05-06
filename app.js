@@ -7,6 +7,10 @@ const ASONE = window.ASONE_DATA;
 let CURRENT_CAST = 'default'; // 'default' (EN · Amina) | 'es' (Sofia)
 let MANIFEST = { scenes: [], hero_video: null };
 
+/** @type {{ src: string, caption: string }[]} */
+let LIGHTBOX_DECK = [];
+let lightboxIndex = 0;
+
 function escapeHtml(value = '') {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -69,6 +73,7 @@ function getHost(hostKey) {
 function renderScenes() {
   const root = document.getElementById('scenes-root');
   const lang = CURRENT_CAST === 'es' ? 'es' : 'en';
+  LIGHTBOX_DECK = [];
   root.innerHTML = ASONE.CHAPTERS.map((c) => {
     const h = getHost(c.host);
     const vo = lang === 'es' ? (c.voES || c.voEN) : c.voEN;
@@ -76,11 +81,21 @@ function renderScenes() {
     const tk = c.takeaway[lang] || c.takeaway.en;
     const openingSrc = imgFor(c.id, 'opening');
     const closingSrc = imgFor(c.id, 'closing');
-    const capOpen = `Opening — ${c.scriptRef}`;
-    const capClose = 'Closing';
+    const capOpen = `Début — ${c.scriptRef}`;
+    const capClose = 'Fin';
+    const idxOpen = LIGHTBOX_DECK.length;
+    LIGHTBOX_DECK.push({
+      src: openingSrc,
+      caption: `Scène ${String(c.id).padStart(2, '0')} · ${capOpen}`,
+    });
+    const idxClose = LIGHTBOX_DECK.length;
+    LIGHTBOX_DECK.push({
+      src: closingSrc,
+      caption: `Scène ${String(c.id).padStart(2, '0')} · ${capClose}`,
+    });
     const savedComment = escapeHtml(storedComment(c.id));
     return `
-<details class="scene" id="chapter-${c.id}">
+<details class="scene" id="chapter-${c.id}" open>
   <summary class="scene-summary">
     <span class="scene-marker">SCENE ${String(c.id).padStart(2,'0')}</span>
     <span class="scene-summary-copy">
@@ -88,22 +103,25 @@ function renderScenes() {
       <strong>${title}</strong>
       <small>${h.label} · ${h.bio}</small>
     </span>
-    <span class="scene-summary-action">Ouvrir la scène</span>
+    <span class="scene-summary-action"><span class="lbl-when-open">Réduire la scène</span><span class="lbl-when-closed">Ouvrir la scène</span></span>
   </summary>
   <div class="scene-body">
     <div class="scene-media-column">
-      <div class="scene-carousel" data-scene-id="${c.id}" aria-label="Scene ${c.id} opening and closing frames">
-        <div class="scene-carousel-viewport">
-          <img class="scene-carousel-slide" src="${openingSrc}" alt="Scene ${c.id} opening" data-caption="${escapeHtml(capOpen)}" loading="lazy">
-          <img class="scene-carousel-slide" src="${closingSrc}" alt="Scene ${c.id} closing" data-caption="${escapeHtml(capClose)}" hidden loading="lazy">
-        </div>
-        <div class="scene-carousel-bar">
-          <button type="button" class="carousel-btn" data-carousel-prev aria-label="Image précédente">←</button>
-          <p class="carousel-caption" aria-live="polite">${escapeHtml(capOpen)}</p>
-          <button type="button" class="carousel-btn" data-carousel-next aria-label="Image suivante">→</button>
-        </div>
-        <p class="carousel-hint">Ouvrez la scène, puis utilisez les flèches pour passer d’une image à l’autre.</p>
+      <div class="scene-frames-stack" data-scene-id="${c.id}">
+        <figure class="scene-frame-block">
+          <button type="button" class="scene-thumb" data-lightbox-idx="${idxOpen}" aria-label="Agrandir image début scène ${c.id}">
+            <img src="${openingSrc}" alt="Scène ${c.id} début" loading="lazy" width="800" height="450">
+          </button>
+          <figcaption class="scene-frame-cap">${escapeHtml(capOpen)}</figcaption>
+        </figure>
+        <figure class="scene-frame-block">
+          <button type="button" class="scene-thumb" data-lightbox-idx="${idxClose}" aria-label="Agrandir image fin scène ${c.id}">
+            <img src="${closingSrc}" alt="Scène ${c.id} fin" loading="lazy" width="800" height="450">
+          </button>
+          <figcaption class="scene-frame-cap">${escapeHtml(capClose)}</figcaption>
+        </figure>
       </div>
+      <p class="frames-hint">Cliquez sur une image pour l’ouvrir en grand et naviguer dans tout le storyboard (← → ou échap).</p>
       <details class="scene-comments">
         <summary>Commentaires — scène ${String(c.id).padStart(2,'0')}</summary>
         <div class="scene-comments-body">
@@ -139,7 +157,6 @@ function renderScenes() {
   </div>
 </details>`;
   }).join('');
-  setupSceneCarousels();
 }
 
 function renderAsOneCharter() {
@@ -186,34 +203,56 @@ function renderHero() {
   }
 }
 
-function setupSceneCarousels() {
-  document.querySelectorAll('.scene-carousel').forEach((root) => {
-    const slides = Array.from(root.querySelectorAll('.scene-carousel-slide'));
-    const cap = root.querySelector('.carousel-caption');
-    const prev = root.querySelector('[data-carousel-prev]');
-    const next = root.querySelector('[data-carousel-next]');
-    let idx = 0;
+function showLightboxAt(idx) {
+  const panel = document.getElementById('storyboard-lightbox');
+  const img = document.getElementById('lightbox-image');
+  const cap = document.getElementById('lightbox-caption');
+  const counter = document.getElementById('lightbox-counter');
+  if (!LIGHTBOX_DECK.length || !panel || !img || !cap || !counter) return;
+  lightboxIndex = ((idx % LIGHTBOX_DECK.length) + LIGHTBOX_DECK.length) % LIGHTBOX_DECK.length;
+  const item = LIGHTBOX_DECK[lightboxIndex];
+  img.src = item.src;
+  img.alt = item.caption;
+  cap.textContent = item.caption;
+  counter.textContent = `${lightboxIndex + 1} / ${LIGHTBOX_DECK.length}`;
+  panel.hidden = false;
+  document.body.style.overflow = 'hidden';
+}
 
-    function render() {
-      slides.forEach((img, i) => {
-        img.hidden = i !== idx;
-      });
-      const text = slides[idx]?.dataset.caption || '';
-      if (cap) cap.textContent = text;
+function closeLightbox() {
+  const panel = document.getElementById('storyboard-lightbox');
+  if (panel) panel.hidden = true;
+  document.body.style.overflow = '';
+}
+
+function setupLightbox() {
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-lightbox-idx]');
+    if (trigger) {
+      e.preventDefault();
+      showLightboxAt(parseInt(trigger.getAttribute('data-lightbox-idx'), 10));
+      return;
     }
+    if (e.target.closest('[data-lightbox-close]')) {
+      closeLightbox();
+    }
+  });
 
-    prev?.addEventListener('click', (e) => {
-      e.preventDefault();
-      idx = (idx - 1 + slides.length) % slides.length;
-      render();
-    });
-    next?.addEventListener('click', (e) => {
-      e.preventDefault();
-      idx = (idx + 1) % slides.length;
-      render();
-    });
+  document.getElementById('lightbox-prev')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showLightboxAt(lightboxIndex - 1);
+  });
+  document.getElementById('lightbox-next')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    showLightboxAt(lightboxIndex + 1);
+  });
 
-    render();
+  document.addEventListener('keydown', (e) => {
+    const panel = document.getElementById('storyboard-lightbox');
+    if (!panel || panel.hidden) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showLightboxAt(lightboxIndex - 1);
+    if (e.key === 'ArrowRight') showLightboxAt(lightboxIndex + 1);
   });
 }
 
@@ -267,6 +306,7 @@ async function boot() {
   setCast('default');
   patchFooter();
   setupComments();
+  setupLightbox();
 
   setInterval(async () => {
     try {

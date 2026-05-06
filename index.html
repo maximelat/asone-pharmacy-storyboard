@@ -212,6 +212,20 @@
   </div>
 </footer>
 
+<div id="storyboard-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Storyboard plein écran" hidden>
+  <div class="lightbox-backdrop" data-lightbox-close tabindex="-1"></div>
+  <div class="lightbox-panel">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Fermer">×</button>
+    <img id="lightbox-image" src="" alt="">
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+    <div class="lightbox-bar">
+      <button type="button" class="lightbox-navbtn" id="lightbox-prev" aria-label="Image précédente">←</button>
+      <span class="lightbox-counter" id="lightbox-counter">1 / 10</span>
+      <button type="button" class="lightbox-navbtn" id="lightbox-next" aria-label="Image suivante">→</button>
+    </div>
+  </div>
+</div>
+
 <script src="data.js"></script>
 <script src="app.js"></script>
 </body>
