@@ -7,7 +7,7 @@ const ASONE = window.ASONE_DATA;
 let CURRENT_CAST = 'default'; // 'default' (EN · Amina) | 'es' (Sofia)
 let MANIFEST = { scenes: [], hero_video: null };
 
-/** @type {{ src: string, caption: string }[]} */
+/** @type {{ src: string, caption: string, kind?: 'image' | 'video', poster?: string }[]} */
 let LIGHTBOX_DECK = [];
 let lightboxIndex = 0;
 
@@ -51,6 +51,15 @@ function imgFor(sceneId, kind) {
   return `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2324226a'/><stop offset='1' stop-color='%23f55b41'/></linearGradient></defs><rect width='800' height='450' fill='url(%23g)'/><text x='50%25' y='50%25' fill='%23fff' text-anchor='middle' font-family='Inter,sans-serif' font-size='22' font-weight='600'>Scene ${sceneId} · ${kind}</text></svg>`)}`;
 }
 
+/** Vidéo charter scène 2 (manifest) — EN ou ES selon le cast */
+function openingVideoUrl(sceneId) {
+  if (sceneId !== 2) return null;
+  const s = MANIFEST.scenes?.find((x) => x.id === sceneId);
+  if (!s) return null;
+  if (CURRENT_CAST === 'es' && s.es_opening_video?.url) return s.es_opening_video.url;
+  return s.opening_video?.url || null;
+}
+
 // ─── 2. cast switch (EN ↔ ES) ──────────────────────────────────────
 function setCast(cast) {
   CURRENT_CAST = cast;
@@ -83,16 +92,46 @@ function renderScenes() {
     const closingSrc = imgFor(c.id, 'closing');
     const capOpen = `Début — ${c.scriptRef}`;
     const capClose = 'Fin';
+    const openingVideo = openingVideoUrl(c.id);
+
     const idxOpen = LIGHTBOX_DECK.length;
-    LIGHTBOX_DECK.push({
-      src: openingSrc,
-      caption: `Scène ${String(c.id).padStart(2, '0')} · ${capOpen}`,
-    });
+    if (openingVideo && c.id === 2) {
+      LIGHTBOX_DECK.push({
+        src: openingVideo,
+        caption: `Scène ${String(c.id).padStart(2, '0')} · ${capOpen}`,
+        kind: 'video',
+        poster: openingSrc,
+      });
+    } else {
+      LIGHTBOX_DECK.push({
+        src: openingSrc,
+        caption: `Scène ${String(c.id).padStart(2, '0')} · ${capOpen}`,
+        kind: 'image',
+      });
+    }
     const idxClose = LIGHTBOX_DECK.length;
     LIGHTBOX_DECK.push({
       src: closingSrc,
       caption: `Scène ${String(c.id).padStart(2, '0')} · ${capClose}`,
+      kind: 'image',
     });
+
+    const openingFigureHtml =
+      openingVideo && c.id === 2
+        ? `<figure class="scene-frame-block scene-frame-block--video">
+        <div class="scene-video-shell">
+          <video class="scene-inline-video" src="${escapeHtml(openingVideo)}" poster="${openingSrc}" controls playsinline muted loop autoplay></video>
+        </div>
+        <button type="button" class="scene-video-lightbox-hit" data-lightbox-idx="${idxOpen}" aria-label="Plein écran début scène 2">Plein écran</button>
+        <figcaption class="scene-frame-cap">${escapeHtml(capOpen)}</figcaption>
+      </figure>`
+        : `<figure class="scene-frame-block">
+        <button type="button" class="scene-thumb" data-lightbox-idx="${idxOpen}" aria-label="Agrandir image début scène ${c.id}">
+          <img src="${openingSrc}" alt="Scène ${c.id} début" loading="lazy" width="800" height="450">
+        </button>
+        <figcaption class="scene-frame-cap">${escapeHtml(capOpen)}</figcaption>
+      </figure>`;
+
     const savedComment = escapeHtml(storedComment(c.id));
     return `
 <details class="scene" id="chapter-${c.id}" open>
@@ -108,12 +147,7 @@ function renderScenes() {
   <div class="scene-body">
     <div class="scene-media-column">
       <div class="scene-frames-stack" data-scene-id="${c.id}">
-        <figure class="scene-frame-block">
-          <button type="button" class="scene-thumb" data-lightbox-idx="${idxOpen}" aria-label="Agrandir image début scène ${c.id}">
-            <img src="${openingSrc}" alt="Scène ${c.id} début" loading="lazy" width="800" height="450">
-          </button>
-          <figcaption class="scene-frame-cap">${escapeHtml(capOpen)}</figcaption>
-        </figure>
+        ${openingFigureHtml}
         <figure class="scene-frame-block">
           <button type="button" class="scene-thumb" data-lightbox-idx="${idxClose}" aria-label="Agrandir image fin scène ${c.id}">
             <img src="${closingSrc}" alt="Scène ${c.id} fin" loading="lazy" width="800" height="450">
@@ -146,7 +180,6 @@ function renderScenes() {
     <div class="scene-meta-row">
       ${c.pills.map(p => `<span class="meta-pill ${p.includes('GENIALLY')||p.includes('RISE')||p.includes('HEYGEN')?'acc':''}">${p}</span>`).join('')}
     </div>
-    ${c.asOneCharter ? renderAsOneCharter() : ''}
     <div class="refs">
       <div class="refs-title">Références (selon la liste du script)</div>
       ${c.refs.map(r => `<div class="refs-row"><span>${r.text}</span></div>`).join('')}
@@ -157,21 +190,6 @@ function renderScenes() {
   </div>
 </details>`;
   }).join('');
-}
-
-function renderAsOneCharter() {
-  return `
-    <div class="asone-card">
-      <div class="asone-title">As One visual charter for this module</div>
-      <div class="asone-grid">
-        <span><b>Navy</b>#24226a</span>
-        <span><b>Tangerine</b>#f55b41</span>
-        <span><b>White</b>#ffffff</span>
-        <span><b>Structure</b>Educate · Empower · Engage</span>
-        <span><b>Rule</b>Respect Rx · no counter-switching</span>
-        <span><b>Footnotes</b>Frame-level references</span>
-      </div>
-    </div>`;
 }
 
 // ─── 5. render blurred chapters ────────────────────────────────────
@@ -206,21 +224,42 @@ function renderHero() {
 function showLightboxAt(idx) {
   const panel = document.getElementById('storyboard-lightbox');
   const img = document.getElementById('lightbox-image');
+  const vid = document.getElementById('lightbox-video');
   const cap = document.getElementById('lightbox-caption');
   const counter = document.getElementById('lightbox-counter');
-  if (!LIGHTBOX_DECK.length || !panel || !img || !cap || !counter) return;
+  if (!LIGHTBOX_DECK.length || !panel || !img || !vid || !cap || !counter) return;
   lightboxIndex = ((idx % LIGHTBOX_DECK.length) + LIGHTBOX_DECK.length) % LIGHTBOX_DECK.length;
   const item = LIGHTBOX_DECK[lightboxIndex];
-  img.src = item.src;
-  img.alt = item.caption;
   cap.textContent = item.caption;
   counter.textContent = `${lightboxIndex + 1} / ${LIGHTBOX_DECK.length}`;
+
+  if (item.kind === 'video') {
+    img.hidden = true;
+    img.removeAttribute('src');
+    vid.hidden = false;
+    vid.src = item.src;
+    if (item.poster) vid.setAttribute('poster', item.poster);
+    else vid.removeAttribute('poster');
+    vid.play().catch(() => {});
+  } else {
+    vid.pause();
+    vid.removeAttribute('src');
+    vid.hidden = true;
+    img.hidden = false;
+    img.src = item.src;
+    img.alt = item.caption;
+  }
   panel.hidden = false;
   document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
   const panel = document.getElementById('storyboard-lightbox');
+  const vid = document.getElementById('lightbox-video');
+  if (vid) {
+    vid.pause();
+    vid.removeAttribute('src');
+  }
   if (panel) panel.hidden = true;
   document.body.style.overflow = '';
 }

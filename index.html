@@ -216,7 +216,10 @@
   <div class="lightbox-backdrop" data-lightbox-close tabindex="-1"></div>
   <div class="lightbox-panel">
     <button type="button" class="lightbox-close" data-lightbox-close aria-label="Fermer">×</button>
-    <img id="lightbox-image" src="" alt="">
+    <div class="lightbox-media">
+      <img id="lightbox-image" src="" alt="">
+      <video id="lightbox-video" class="lightbox-video-el" controls playsinline preload="metadata" hidden></video>
+    </div>
     <p class="lightbox-caption" id="lightbox-caption"></p>
     <div class="lightbox-bar">
       <button type="button" class="lightbox-navbtn" id="lightbox-prev" aria-label="Image précédente">←</button>

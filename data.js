@@ -75,7 +75,6 @@ const CHAPTERS = [
             es:'Una historia de 55 años en 17 idiomas' },
     voEN:`Daflon's heritage spans more than fifty-five years across the globe — Russia, Spain, Slovakia, Brazil, the Philippines, Portugal. From every continent, pharmacists have walked patients through chronic venous and hemorrhoidal disease. Today the As One strategy gathers all of these voices into one cardiometabolic conversation: hypertension, anticoagulants, dyslipidemia and diabetes will join the venous chapter.`,
     voES:`La historia de Daflon abarca más de cincuenta y cinco años: Rusia, España, Eslovaquia, Brasil, Filipinas, Portugal. Desde cada continente, los farmacéuticos han acompañado a sus pacientes en la enfermedad venosa y hemorroidal. Hoy, la estrategia As One reúne todas esas voces en una sola conversación cardiometabólica.`,
-    asOneCharter:true,
     refs:[
       {tag:'SCRIPT', text:'Source script: PART #2 — GLOBAL VIDEO. No numbered scientific references are cited in this global video section.'},
     ],
