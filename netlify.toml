@@ -1,0 +1,16 @@
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "interest-cohort=()"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/assets/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=60, must-revalidate"

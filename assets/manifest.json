@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-05-06T00:58:59.010Z",
+  "scenes": [
+    {
+      "id": 1,
+      "slug": "welcome",
+      "opening": "https://v3b.fal.media/files/b/0a990ea5/nlYRXirv584Bb5AeI-DMH_toPwp4Hq.jpg",
+      "closing": "https://v3b.fal.media/files/b/0a990ea4/Mji6HFJ98CEcNBls-Fy09_plpyiRD0.jpg"
+    },
+    {
+      "id": 2,
+      "slug": "global",
+      "opening": "https://v3b.fal.media/files/b/0a990ea4/fHkuoEnbBoYh-y99SzD7q_QEyoQzhX.jpg",
+      "closing": "https://v3b.fal.media/files/b/0a990ea4/l9nmy7__QB1OnJjI62xsq_Pb8z8hkw.jpg"
+    },
+    {
+      "id": 3,
+      "slug": "venous-physiology",
+      "opening": "https://v3b.fal.media/files/b/0a990ea4/hQlixWp82PJmG2x4VH2pc_6xig5jyC.jpg",
+      "closing": "https://v3b.fal.media/files/b/0a990ea4/ws1AqGj1yLt29OWSOgUq6_4vi1RLS5.jpg"
+    },
+    {
+      "id": 4,
+      "slug": "cvd",
+      "opening": "https://v3b.fal.media/files/b/0a990ea4/xFr67D37JS295UgOXuyH2_Xeu6oJnN.jpg",
+      "closing": "https://v3b.fal.media/files/b/0a990ea4/dzWOkv71YUR18OhsBYTL7_FWbXtZg2.jpg"
+    },
+    {
+      "id": 5,
+      "slug": "hemorrhoidal",
+      "opening": "https://v3b.fal.media/files/b/0a990ea3/sWsp1ML_DI-l_IWZ6ELHl_14kYJVLV.jpg",
+      "closing": "https://v3b.fal.media/files/b/0a990ea5/LvCbSNFjMs76JYoN5XsQh_vcDvQjHy.jpg"
+    }
+  ],
+  "hero_video": {
+    "url": "https://v3b.fal.media/files/b/0a990eb5/UBf5_bWp5QCNtNg6I0DvO_video.mp4",
+    "seed": 1300616265,
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "prompt": "Cinematic ultra-realistic editorial photograph, MasterClass.com premium documentary style, shot on ARRI Alexa 65 with anamorphic 65mm lens, shallow depth of field, soft golden-hour ambient light through tall windows, warm amber practical lights, brushed brass and walnut wood, navy #24226a and tangerine #f55b41 accent palette woven subtly into wardrobe and props, museum-grade pharmacy training studio, no logos, no watermark, no text overlay, 16:9, 4K, intimate Vogue Health editorial mood, cinematic colour grading teal-and-amber, polished but warm, Servier As One. 10-second cinematic teaser inspired by MasterClass.com x Santé Académie. Sequence: 0-2s slow push-in on the four pharmacist hosts standing in the luxurious training studio, golden hour, glass walls behind. 2-4s cut to macro of a brass apothecary jar refracting light. 4-6s cut to Sofia (Hispanic Latina) leaning toward a senior female patient at the walnut counter, both smile. 6-8s cut to David turning a translucent hologram diagram of the venous system. 8-10s the four hosts together looking toward camera with quiet conviction, tagline space top-right. Heartbeat sound rising into a warm cinematic strings cue. Anamorphic flares, teal-amber grade. four pharmacist hosts in their 30s standing/seated together: Amina (African woman, warm smile, white coat over emerald silk blouse), David (European man, silver-rimmed glasses, navy three-piece suit), Kai (East Asian man, charcoal turtleneck under tailored coat), Sofia (Hispanic Latina woman, hazel eyes, ivory blouse). Skin tones natural, ages 32-38, professional yet approachable, magnetic eye contact with camera."
+  }
+}

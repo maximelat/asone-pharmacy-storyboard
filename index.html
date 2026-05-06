@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Servier × Stetoo — As One Pharmacy E-Learning · Phase 2 Storyboard · Compliance Readiness View">
+<meta name="theme-color" content="#0b0b1f">
+<title>Servier × Stetoo — As One Pharmacy E-Learning · Storyboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2324226a'/><text x='16' y='22' text-anchor='middle' font-size='18' fill='%23f55b41'>♥</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ───────────────────────── TOPBAR / LANGUAGE SELECTOR ───────────────────────── -->
+<header class="topbar" id="topbar">
+  <a class="topbar-brand" href="#hero">
+    <!-- Stetoo logo (text mark with stethoscope chevron) -->
+    <svg class="logo-stetoo" viewBox="0 0 220 56" aria-label="Stetoo">
+      <defs>
+        <linearGradient id="gStetoo" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0%" stop-color="#f7d27a"/>
+          <stop offset="55%" stop-color="#f4b85a"/>
+          <stop offset="100%" stop-color="#f55b41"/>
+        </linearGradient>
+      </defs>
+      <path d="M14 28 a14 14 0 0 1 28 0" fill="none" stroke="url(#gStetoo)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="42" cy="34" r="6" fill="none" stroke="url(#gStetoo)" stroke-width="3"/>
+      <text x="58" y="38" font-family="Cormorant Garamond" font-weight="700" font-size="32" fill="#fff" letter-spacing="2">stetoo</text>
+    </svg>
+    <span class="topbar-divider">×</span>
+    <span class="topbar-client">SERVIER · As One</span>
+  </a>
+
+  <nav class="topbar-nav">
+    <a href="#hero">Trailer</a>
+    <a href="#chapters">Chapters</a>
+    <a href="#interactive">Interactive</a>
+    <a href="#deliverables">Deliverables</a>
+  </nav>
+
+  <div class="topbar-actions">
+    <div class="cast-switch" data-current="default" role="tablist" aria-label="Cast / language">
+      <button data-cast="default" class="cs-btn active">EN · 4 Hosts</button>
+      <button data-cast="es" class="cs-btn">ES · Sofia</button>
+    </div>
+    <span class="badge-compliance">Compliance Readiness</span>
+  </div>
+</header>
+
+<!-- ───────────────────────── HERO BLOCK ───────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <video id="heroVideo" muted loop playsinline poster="" preload="metadata"></video>
+    <img id="heroPoster" alt="" decoding="async">
+    <div class="hero-vignette"></div>
+    <div class="hero-grain"></div>
+  </div>
+
+  <div class="hero-copy">
+    <span class="hero-tag">Phase 2 · Pharmacy Global E-Learning · 2026</span>
+    <h1 class="hero-title" data-i18n="hero.title">From <em>Prescription</em> to <em>Persistence</em></h1>
+    <h2 class="hero-sub" data-i18n="hero.sub">Empowering pharmacists at the counter — a cinematic e-learning series for cardiometabolic and venous disease (CMVD).</h2>
+
+    <div class="hero-meta">
+      <div class="hm-block">
+        <div class="hm-num">10</div>
+        <div class="hm-lbl">narrative chapters</div>
+      </div>
+      <div class="hm-block">
+        <div class="hm-num">1h&nbsp;50</div>
+        <div class="hm-lbl">total runtime</div>
+      </div>
+      <div class="hm-block">
+        <div class="hm-num">10–15</div>
+        <div class="hm-lbl">target countries</div>
+      </div>
+      <div class="hm-block">
+        <div class="hm-num">≈40 k€</div>
+        <div class="hm-lbl">budget envelope</div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a class="btn primary" href="#chapter-1">Watch the trailer ▶</a>
+      <a class="btn ghost" href="#deliverables">Compliance pack</a>
+    </div>
+
+    <div class="hero-engines">
+      <div class="he-pill">Higgsfield · Seedance 2.0 high</div>
+      <div class="he-pill">Genially · interactive</div>
+      <div class="he-pill">Rise Articulate 360</div>
+      <div class="he-pill">HeyGen × Seedance 2.0 hybrid</div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── BRIEF STRIP ───────────────────────── -->
+<section class="strip">
+  <div class="strip-inner">
+    <div class="strip-item">
+      <div class="strip-icon">★</div>
+      <div>
+        <h4>From siloed to holistic</h4>
+        <p data-i18n="strip.holistic">CMVD patients are not a challenge — they are an opportunity. We help pharmacists endorse the prescription, counsel on lifestyle and reinforce adherence.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">⚖</div>
+      <div>
+        <h4>Branded ↔ Unbranded</h4>
+        <p data-i18n="strip.branded">≈50% disease environment unbranded (CME-eligible), product modules fully branded. References at the frame level. Native files delivered.</p>
+      </div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-icon">◊</div>
+      <div>
+        <h4>Cinematic, not corporate</h4>
+        <p data-i18n="strip.cinematic">Inspired by MasterClass.com & Santé Académie — luxurious lighting, intimate framing, no Synthesia avatars, no licensable human talent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── CHAPTER GRID ───────────────────────── -->
+<section class="chapters" id="chapters">
+  <header class="chapters-head">
+    <div>
+      <span class="eyebrow">The 10-chapter journey</span>
+      <h2>A cinematic ride from <em>physiology</em> to <em>persistence</em></h2>
+      <p>Five chapters fully developed below — five chapters in soft focus while medical review is finalized — the appendix locked behind compliance readiness.</p>
+    </div>
+    <div class="legend">
+      <span><i class="dot d-ready"></i> Developed</span>
+      <span><i class="dot d-blur"></i> Pending review</span>
+      <span><i class="dot d-lock"></i> Locked</span>
+    </div>
+  </header>
+
+  <div class="scenes" id="scenes-root"><!-- injected by JS --></div>
+
+  <!-- BLURRED 5 next chapters -->
+  <div class="blurred-rail">
+    <div class="rail-overlay">
+      <h3>Chapters 6 → 10 — under medical review</h3>
+      <p>These chapters are awaiting the second round of medical approval. Voice-overs and visuals remain confidential until validated.</p>
+    </div>
+    <div class="blurred-grid" id="blurred-root"><!-- injected --></div>
+  </div>
+
+  <!-- LOCKED appendix -->
+  <div class="locked-rail">
+    <div class="locked-card">
+      <div class="lock-icon">🔒</div>
+      <div>
+        <h3 data-i18n="lock.h">Appendix · References · Knowledge Assessments</h3>
+        <p data-i18n="lock.p">References cited per frame (timestamp level), 4–5 knowledge assessments of 10 questions each, source / native files, branding switch toggles for affiliate localisation. Available after final approval.</p>
+      </div>
+      <a class="btn ghost" href="mailto:hello@stetoo.fr?subject=ASONE%20compliance%20pack" data-i18n="lock.btn">Request access</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── INTERACTIVE BLOCK ───────────────────────── -->
+<section class="interactive" id="interactive">
+  <div class="int-head">
+    <span class="eyebrow">Interactive layer</span>
+    <h2>An alternation of <em>cinematic</em> &amp; <em>interactive</em> scenes</h2>
+    <p>Cinematic scenes use Higgsfield · Seedance 2.0. Interactive scenes embed Genially / Rise Articulate 360. Hybrid talking-head moments combine HeyGen avatars with Seedance 2.0 b-roll for richer realism without licensing risk.</p>
+  </div>
+  <div class="int-grid">
+    <article class="int-card">
+      <div class="int-cover" style="background:linear-gradient(135deg,#1a1a3d,#2a2858);">
+        <span class="int-stamp">Genially</span>
+      </div>
+      <h4>Anatomy explorer</h4>
+      <p>Interactive 3D vein with hotspots — valves, muscle pump, plantar venous pump. Inserted in chapter 3 as a 60-second active pause.</p>
+    </article>
+    <article class="int-card">
+      <div class="int-cover" style="background:linear-gradient(135deg,#27193e,#5b2942);">
+        <span class="int-stamp">Rise Articulate 360</span>
+      </div>
+      <h4>CEAP staging quiz</h4>
+      <p>Drag-and-drop the patient symptoms onto the C0 → C6 progression. Inline scoring + take-home messages. Fits in chapter 4.</p>
+    </article>
+    <article class="int-card">
+      <div class="int-cover" style="background:linear-gradient(135deg,#1f2a4f,#3a426d);">
+        <span class="int-stamp">HeyGen × Seedance 2.0</span>
+      </div>
+      <h4>Counter-counselling sim</h4>
+      <p>HeyGen avatar plays the patient — Seedance 2.0 generates the b-roll lifestyle scenes. The pharmacist trainee chooses dialogue branches.</p>
+    </article>
+    <article class="int-card">
+      <div class="int-cover" style="background:linear-gradient(135deg,#3a1f1f,#56281d);">
+        <span class="int-stamp">Higgsfield · Cinema Studio</span>
+      </div>
+      <h4>Cinematic teaser reel</h4>
+      <p>10-second hero trailer (Seedance 2.0 high · 1080p · audio). Two reference videos seed the MasterClass-grade look.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────────────────── DELIVERABLES ───────────────────────── -->
+<section class="deliverables" id="deliverables">
+  <div class="dlv-head">
+    <span class="eyebrow">Deliverables · Phase 2 · 1h50 program</span>
+    <h2>What the agency ships in July 2026</h2>
+  </div>
+  <div class="dlv-grid">
+    <div class="dlv">
+      <span class="dlv-num">01</span>
+      <h4>1h50 of video content</h4>
+      <p>10 narrative chapters, sub-modules sliceable for affiliate LMS use, MP4 exports + native files, MyServier-ready (white / orange / blue corporate brand).</p>
+    </div>
+    <div class="dlv">
+      <span class="dlv-num">02</span>
+      <h4>Visual identity book</h4>
+      <p>An As One graphic chart that evolves from the original Daflon system — coherent across Year 1 → 2 → 3, no Frankenstein effect.</p>
+    </div>
+    <div class="dlv">
+      <span class="dlv-num">03</span>
+      <h4>Knowledge assessments</h4>
+      <p>4–5 visual quiz packs of 10 questions, in Articulate 360 / Storyline / Rise format — placeholders inside videos point trainees to the assessment.</p>
+    </div>
+    <div class="dlv">
+      <span class="dlv-num">04</span>
+      <h4>Frame-level reference engine</h4>
+      <p>Citations rendered at the timestamp level (Servier reference style), exported as a separate PDF for medical approval.</p>
+    </div>
+    <div class="dlv">
+      <span class="dlv-num">05</span>
+      <h4>Affiliate-ready source files</h4>
+      <p>After Effects projects, raw Seedance prompts, 16:9 + 9:16 masters, EN voice-over stems, ready for 10–15 country dubbing.</p>
+    </div>
+    <div class="dlv">
+      <span class="dlv-num">06</span>
+      <h4>AI usage disclosure</h4>
+      <p>Full transparency on Higgsfield, Seedance 2.0, HeyGen, Genially, Rise Articulate — aligned with Servier confidentiality clause.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── FOOTER ───────────────────────── -->
+<footer class="foot">
+  <div class="foot-row">
+    <div class="foot-brand">
+      <svg class="logo-stetoo small" viewBox="0 0 220 56"><use href="#"/></svg>
+      <strong>Stetoo</strong> · creative video agency for life sciences
+    </div>
+    <div class="foot-meta">
+      <span>Servier · As One Pharmacy E-Learning · Phase 2</span>
+      <span>v0.1 · {{DATE}}</span>
+      <span>Confidential · Compliance Readiness View</span>
+    </div>
+  </div>
+  <div class="foot-disclaimer">
+    Not for promotional use. All visuals, voice-overs and interactive prototypes shown on this page are storyboard previews generated by Stetoo for pitch purposes. Final assets, references and product mentions will be subject to Servier medical approval.
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
