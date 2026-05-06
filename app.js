@@ -126,10 +126,8 @@ function renderHero() {
 // ─── 7. polish footer date ─────────────────────────────────────────
 function patchFooter() {
   const d = new Date();
-  document.body.innerHTML = document.body.innerHTML.replace(
-    '{{DATE}}',
-    d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' })
-  );
+  const el = document.getElementById('buildDate');
+  if (el) el.textContent = d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
 }
 
 // ─── 8. boot ───────────────────────────────────────────────────────
