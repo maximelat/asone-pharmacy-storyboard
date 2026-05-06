@@ -2,7 +2,7 @@
    ASONE Storyboard · runtime
    ════════════════════════════════════════════════════════════════════ */
 
-const { CHAPTERS, BLURRED, HOSTS, HOSTS_ES } = window.ASONE_DATA;
+const ASONE = window.ASONE_DATA;
 
 let CURRENT_CAST = 'default'; // 'default' (EN · 4 hosts) | 'es' (Sofia)
 let MANIFEST = { scenes: [], hero_video: null };
@@ -40,14 +40,14 @@ function setCast(cast) {
 
 // ─── 3. host helper ────────────────────────────────────────────────
 function getHost(hostKey) {
-  return CURRENT_CAST === 'es' ? HOSTS_ES[hostKey] : HOSTS[hostKey];
+  return CURRENT_CAST === 'es' ? ASONE.HOSTS_ES[hostKey] : ASONE.HOSTS[hostKey];
 }
 
 // ─── 4. render developed scenes ────────────────────────────────────
 function renderScenes() {
   const root = document.getElementById('scenes-root');
   const lang = CURRENT_CAST === 'es' ? 'es' : 'en';
-  root.innerHTML = CHAPTERS.map((c, i) => {
+  root.innerHTML = ASONE.CHAPTERS.map((c) => {
     const h = getHost(c.host);
     const vo = lang === 'es' ? (c.voES || c.voEN) : c.voEN;
     const title = c.title[lang] || c.title.en;
@@ -91,7 +91,7 @@ function renderScenes() {
 function renderBlurred() {
   const root = document.getElementById('blurred-root');
   const lang = CURRENT_CAST === 'es' ? 'es' : 'en';
-  root.innerHTML = BLURRED.map(b => {
+  root.innerHTML = ASONE.BLURRED.map(b => {
     const h = getHost(b.host);
     const title = b.title[lang] || b.title.en;
     return `
