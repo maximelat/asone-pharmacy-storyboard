@@ -35,6 +35,7 @@ function setCast(cast) {
   document.documentElement.setAttribute('data-cast', cast);
   renderScenes();
   renderBlurred();
+  renderCharacters();
   renderHero();
 }
 
@@ -54,6 +55,7 @@ function renderScenes() {
     const tk = c.takeaway[lang] || c.takeaway.en;
     return `
 <article class="scene" id="chapter-${c.id}">
+  <div class="scene-marker">SCENE ${String(c.id).padStart(2,'0')}</div>
   <div class="scene-frames">
     <div class="scene-frame">
       <img loading="lazy" src="${imgFor(c.id, 'opening')}" alt="Scene ${c.id} opening frame">
@@ -76,15 +78,46 @@ function renderScenes() {
     <div class="scene-meta-row">
       ${c.pills.map(p => `<span class="meta-pill ${p.includes('GENIALLY')||p.includes('RISE')||p.includes('HEYGEN')?'acc':''}">${p}</span>`).join('')}
     </div>
+    ${c.asOneCharter ? renderAsOneCharter() : ''}
     <div class="refs">
-      <div class="refs-title">Sources shown for medical approval</div>
-      ${c.refs.map(r => `<div class="refs-row"><span class="refs-tag">[${r.tag}]</span><span>${r.text}</span></div>`).join('')}
+      <div class="refs-title">Sources cited exactly from the script reference list</div>
+      ${c.refs.map(r => `<div class="refs-row"><span>${r.text}</span></div>`).join('')}
     </div>
     <div class="takeaway"><b>Take-home</b>${tk}</div>
     <div style="margin-top:14px"><span class="meta-pill acc">${c.accSlot}</span></div>
   </div>
 </article>`;
   }).join('');
+}
+
+function renderAsOneCharter() {
+  return `
+    <div class="asone-card">
+      <div class="asone-title">As One visual charter for this module</div>
+      <div class="asone-grid">
+        <span><b>Navy</b>#24226a</span>
+        <span><b>Tangerine</b>#f55b41</span>
+        <span><b>White</b>#ffffff</span>
+        <span><b>Structure</b>Educate · Empower · Engage</span>
+        <span><b>Rule</b>Respect Rx · no counter-switching</span>
+        <span><b>Footnotes</b>Frame-level references</span>
+      </div>
+    </div>`;
+}
+
+function renderCharacters() {
+  const root = document.getElementById('characters-root');
+  if (!root) return;
+  root.innerHTML = ASONE.CHARACTERS.map(c => `
+    <article class="character-card">
+      <img src="${c.src}" alt="${c.name} four-angle reference sheet" loading="lazy">
+      <div class="character-meta">
+        <span>${c.label}</span>
+        <strong>${c.name}</strong>
+        <small>${c.note}</small>
+      </div>
+    </article>
+  `).join('');
 }
 
 // ─── 5. render blurred chapters ────────────────────────────────────
@@ -130,6 +163,27 @@ function patchFooter() {
   if (el) el.textContent = d.toLocaleDateString('en-GB', { day:'2-digit', month:'short', year:'numeric' });
 }
 
+function setupComments() {
+  const ta = document.getElementById('reviewComments');
+  if (!ta) return;
+  const key = 'asone-review-comments-v1';
+  const status = document.getElementById('commentsStatus');
+  ta.value = localStorage.getItem(key) || '';
+  ta.addEventListener('input', () => {
+    localStorage.setItem(key, ta.value);
+    if (status) status.textContent = 'Saved locally';
+  });
+  document.getElementById('copyComments')?.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(ta.value || '');
+    if (status) status.textContent = 'Copied';
+  });
+  document.getElementById('clearComments')?.addEventListener('click', () => {
+    ta.value = '';
+    localStorage.removeItem(key);
+    if (status) status.textContent = 'Cleared';
+  });
+}
+
 // ─── 8. boot ───────────────────────────────────────────────────────
 async function boot() {
   await loadManifest();
@@ -138,6 +192,7 @@ async function boot() {
   });
   setCast('default');
   patchFooter();
+  setupComments();
   // re-bind scene anchors
   document.querySelectorAll('.scene-tag, .scene-title').forEach(el => {});
 

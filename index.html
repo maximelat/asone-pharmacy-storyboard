@@ -17,19 +17,7 @@
 <!-- ───────────────────────── TOPBAR / LANGUAGE SELECTOR ───────────────────────── -->
 <header class="topbar" id="topbar">
   <a class="topbar-brand" href="#hero">
-    <!-- Stetoo logo (text mark with stethoscope chevron) -->
-    <svg class="logo-stetoo" viewBox="0 0 220 56" aria-label="Stetoo">
-      <defs>
-        <linearGradient id="gStetoo" x1="0" x2="1" y1="0" y2="1">
-          <stop offset="0%" stop-color="#f7d27a"/>
-          <stop offset="55%" stop-color="#f4b85a"/>
-          <stop offset="100%" stop-color="#f55b41"/>
-        </linearGradient>
-      </defs>
-      <path d="M14 28 a14 14 0 0 1 28 0" fill="none" stroke="url(#gStetoo)" stroke-width="3" stroke-linecap="round"/>
-      <circle cx="42" cy="34" r="6" fill="none" stroke="url(#gStetoo)" stroke-width="3"/>
-      <text x="58" y="38" font-family="Cormorant Garamond" font-weight="700" font-size="32" fill="#fff" letter-spacing="2">stetoo</text>
-    </svg>
+    <img class="logo-stetoo" src="assets/logos/logo-stetoo-blanc.png" alt="Stetoo">
     <span class="topbar-divider">×</span>
     <span class="topbar-client">SERVIER · As One</span>
   </a>
@@ -60,7 +48,7 @@
   </div>
 
   <div class="hero-copy">
-    <span class="hero-tag">Compliance Ready View · Phase 2 · Pharmacy Global E-Learning · 2026</span>
+    <span class="hero-tag">Servier · HFA-inspired Compliance Ready View · Phase 2 · 2026</span>
     <h1 class="hero-title" data-i18n="hero.title">From <em>Prescription</em> to <em>Persistence</em></h1>
     <h2 class="hero-sub" data-i18n="hero.sub">Empowering pharmacists at the counter — a cinematic e-learning series for cardiometabolic and venous disease (CMVD).</h2>
 
@@ -97,6 +85,16 @@
   </div>
 </section>
 
+<!-- ───────────────────────── CHARACTER PERSISTENCE ───────────────────────── -->
+<section class="characters" id="characters">
+  <div class="characters-head">
+    <span class="eyebrow">Character persistence · seed lock</span>
+    <h2>Recurring characters before storyboard generation</h2>
+    <p>Two ethnic/cultural variants maximum for this MVP: EN global host and ES Hispanic host. Each sheet is generated with GPT Image 2 high in four angles to keep character consistency across Seedance/Higgsfield scenes.</p>
+  </div>
+  <div class="character-grid" id="characters-root"><!-- injected --></div>
+</section>
+
 <!-- ───────────────────────── SOURCES PACK ───────────────────────── -->
 <section class="source-pack" id="sources">
   <div class="source-head">
@@ -120,6 +118,21 @@
       <h4>Pharmacy Global E-Learning — Final Speaker’s Script</h4>
       <p>Voice-over and scientific references for the first developed modules: welcome, global video, venous physiology, CVD and hemorrhoidal disease.</p>
     </article>
+  </div>
+</section>
+
+<!-- ───────────────────────── COMMENTS ───────────────────────── -->
+<section class="comments" id="comments">
+  <div class="comments-card">
+    <span class="eyebrow">Comments · compliance review</span>
+    <h2>Reviewer comments</h2>
+    <p>Local review notes for the pitch page. These comments stay in the reviewer’s browser and can be copied into the formal approval tracker.</p>
+    <textarea id="reviewComments" placeholder="Add medical / creative / localization comments here..."></textarea>
+    <div class="comments-actions">
+      <button class="tb-btn" id="copyComments">Copy comments</button>
+      <button class="tb-btn danger" id="clearComments">Clear</button>
+      <span id="commentsStatus"></span>
+    </div>
   </div>
 </section>
 
@@ -200,6 +213,7 @@
       <span>10 stills EN + 10 stills ES</span>
       <span>4–5 assessments × 10 questions</span>
       <span>Frame-level references</span>
+      <span>Higgsfield MVP skin enhance · pending token refresh</span>
       <span>Native source files</span>
       <span>AI usage disclosure</span>
     </div>
@@ -210,7 +224,7 @@
 <footer class="foot">
   <div class="foot-row">
     <div class="foot-brand">
-      <svg class="logo-stetoo small" viewBox="0 0 220 56"><use href="#"/></svg>
+      <img class="logo-stetoo small" src="assets/logos/logo-stetoo.svg" alt="">
       <strong>Stetoo</strong> · creative video agency for life sciences
     </div>
     <div class="foot-meta">
