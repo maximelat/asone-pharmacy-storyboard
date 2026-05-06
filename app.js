@@ -19,6 +19,7 @@ async function loadManifest() {
 
 function imgFor(sceneId, kind) {
   const s = MANIFEST.scenes?.find(x => x.id === sceneId);
+  if (CURRENT_CAST === 'es' && s?.[`es_${kind}`]) return s[`es_${kind}`];
   if (s?.[kind]) return s[kind];
   // Fallback : a single placeholder gradient SVG
   return `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2324226a'/><stop offset='1' stop-color='%23f55b41'/></linearGradient></defs><rect width='800' height='450' fill='url(%23g)'/><text x='50%25' y='50%25' fill='%23fff' text-anchor='middle' font-family='Inter,sans-serif' font-size='22' font-weight='600'>Scene ${sceneId} · ${kind}</text></svg>`)}`;
@@ -76,6 +77,7 @@ function renderScenes() {
       ${c.pills.map(p => `<span class="meta-pill ${p.includes('GENIALLY')||p.includes('RISE')||p.includes('HEYGEN')?'acc':''}">${p}</span>`).join('')}
     </div>
     <div class="refs">
+      <div class="refs-title">Sources shown for medical approval</div>
       ${c.refs.map(r => `<div class="refs-row"><span class="refs-tag">[${r.tag}]</span><span>${r.text}</span></div>`).join('')}
     </div>
     <div class="takeaway"><b>Take-home</b>${tk}</div>
@@ -109,7 +111,7 @@ function renderHero() {
   const p = document.getElementById('heroPoster');
   const poster = imgFor(1, 'opening');
   p.src = poster;
-  if (MANIFEST.hero_video?.url) {
+  if (CURRENT_CAST !== 'es' && MANIFEST.hero_video?.url) {
     v.src = MANIFEST.hero_video.url;
     v.poster = poster;
     v.style.display = 'block';
