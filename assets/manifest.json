@@ -51,6 +51,17 @@
         "prompt": "Premium healthcare brand animation for Servier As One scene \"A 55-year story across 17 languages\".\nStarting from the provided still frame, keep the same navy brand wall, protagonist, world-map texture and colored As One ribbon paths.\nMotion: slow cinematic push-in, the blue/red/green/yellow/orange ribbons softly glow, light pulses travel along the routes across the world map, subtle parallax on the wall, no extra characters, no fake logos, no product claims, no new text overlays, no distortion of the protagonist.\nElegant MasterClass/Sante Academie healthcare training insert, compliance-safe, realistic, 16:9.",
         "generated_at": "2026-05-06T03:05:59.698Z",
         "higgsfield_attempt": "failed: generate_video server error"
+      },
+      "es_opening_video": {
+        "url": "https://v3b.fal.media/files/b/0a9911cf/BvFaacHt2Avhzgt-Mx7T1_video.mp4",
+        "model": "bytedance/seedance-2.0/image-to-video",
+        "provider": "fal",
+        "source": "https://asone-pharmacy-storyboard.netlify.app/assets/gpt-image2-v2/scene-02-es-opening.png",
+        "duration": 5,
+        "resolution": "1080p",
+        "prompt": "Premium healthcare brand animation for Servier As One scene \"A 55-year story across 17 languages\" (ES / Sofia).\nStarting from the provided still frame, keep the same navy brand wall, protagonist, world-map texture and colored As One ribbon paths.\nMotion: slow cinematic push-in, the blue/red/green/yellow/orange ribbons softly glow, light pulses travel along the routes across the world map, subtle parallax on the wall, no extra characters, no fake logos, no product claims, no new text overlays, no distortion of the protagonist.\nElegant MasterClass/Sante Academie healthcare training insert, compliance-safe, realistic, 16:9.",
+        "generated_at": "2026-05-06T03:14:37.075Z",
+        "higgsfield_attempt": "failed: generate_video server error"
       }
     },
     {
@@ -106,10 +117,8 @@
     }
   ],
   "hero_video": {
-    "url": "https://v3b.fal.media/files/b/0a990eb5/UBf5_bWp5QCNtNg6I0DvO_video.mp4",
-    "seed": 1300616265,
-    "model": "bytedance/seedance-2.0/image-to-video",
-    "prompt": "Cinematic ultra-realistic editorial photograph, MasterClass.com premium documentary style, shot on ARRI Alexa 65 with anamorphic 65mm lens, shallow depth of field, soft golden-hour ambient light through tall windows, warm amber practical lights, brushed brass and walnut wood, navy #24226a and tangerine #f55b41 accent palette woven subtly into wardrobe and props, museum-grade pharmacy training studio, no logos, no watermark, no text overlay, 16:9, 4K, intimate Vogue Health editorial mood, cinematic colour grading teal-and-amber, polished but warm, Servier As One. 10-second cinematic teaser inspired by MasterClass.com x Santé Académie. Sequence: 0-2s slow push-in on the four pharmacist hosts standing in the luxurious training studio, golden hour, glass walls behind. 2-4s cut to macro of a brass apothecary jar refracting light. 4-6s cut to Sofia (Hispanic Latina) leaning toward a senior female patient at the walnut counter, both smile. 6-8s cut to David turning a translucent hologram diagram of the venous system. 8-10s the four hosts together looking toward camera with quiet conviction, tagline space top-right. Heartbeat sound rising into a warm cinematic strings cue. Anamorphic flares, teal-amber grade. four pharmacist hosts in their 30s standing/seated together: Amina (African woman, warm smile, white coat over emerald silk blouse), David (European man, silver-rimmed glasses, navy three-piece suit), Kai (East Asian man, charcoal turtleneck under tailored coat), Sofia (Hispanic Latina woman, hazel eyes, ivory blouse). Skin tones natural, ages 32-38, professional yet approachable, magnetic eye contact with camera."
+    "url": null,
+    "disabled_reason": "Replaced by cast-specific GPT Image 2 scene 01 poster to avoid legacy multi-host inconsistency."
   },
   "es_generated_at": "2026-05-06T01:14:57.823Z"
 }

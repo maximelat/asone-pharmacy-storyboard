@@ -28,6 +28,7 @@ function imgFor(sceneId, kind) {
 function videoFor(sceneId, kind) {
   if (kind !== 'opening') return null;
   const s = MANIFEST.scenes?.find(x => x.id === sceneId);
+  if (CURRENT_CAST === 'es' && s?.es_opening_video?.url) return s.es_opening_video.url;
   return s?.opening_video?.url || null;
 }
 
