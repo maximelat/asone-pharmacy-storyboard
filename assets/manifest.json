@@ -4,49 +4,105 @@
     {
       "id": 1,
       "slug": "welcome",
-      "opening": "https://v3b.fal.media/files/b/0a990ea5/nlYRXirv584Bb5AeI-DMH_toPwp4Hq.jpg",
-      "closing": "https://v3b.fal.media/files/b/0a990ea4/Mji6HFJ98CEcNBls-Fy09_plpyiRD0.jpg",
-      "es_opening": "https://v3b.fal.media/files/b/0a990f00/HJhFKA_h-FR_WujRGx946_REsT97uO.jpg",
-      "es_closing": "https://v3b.fal.media/files/b/0a990f01/o3lx_6Lrg4mNsa0jeNcKn_UkR9NXyT.jpg"
+      "opening": "assets/gpt-image2-v2/scene-01-en-opening.png",
+      "closing": "assets/gpt-image2-v2/scene-01-en-closing.png",
+      "es_opening": "assets/gpt-image2-v2/scene-01-es-opening.png",
+      "es_closing": "assets/gpt-image2-v2/scene-01-es-closing.png",
+      "gpt_image2_v2": {
+        "model": "openai/gpt-image-2",
+        "endpoint": "images/edits",
+        "quality": "high",
+        "count": 20,
+        "character_logic": "EN=Amina, ES=Sofia",
+        "charter_reference": "Capture_d_e_cran_2026-05-01_a__21.03.03-aae0f3b1-c3c0-4f8d-a68c-13feea8d5971.png",
+        "generated_at": "2026-05-06T02:20:39.745Z"
+      }
     },
     {
       "id": 2,
       "slug": "global",
-      "opening": "assets/scenes/scene-02-asone-charter-i2i.png",
-      "closing": "https://v3b.fal.media/files/b/0a990ea4/l9nmy7__QB1OnJjI62xsq_Pb8z8hkw.jpg",
-      "es_opening": "assets/scenes/scene-02-asone-charter-i2i.png",
-      "es_closing": "https://v3b.fal.media/files/b/0a990f01/trZwQ-7y2NLbENiC6cizT_yBvucyK7.jpg",
+      "opening": "assets/gpt-image2-v2/scene-02-en-opening.png",
+      "closing": "assets/gpt-image2-v2/scene-02-en-closing.png",
+      "es_opening": "assets/gpt-image2-v2/scene-02-es-opening.png",
+      "es_closing": "assets/gpt-image2-v2/scene-02-es-closing.png",
       "asone_charter_i2i": {
         "model": "openai/gpt-image-2",
         "endpoint": "images/edits",
         "quality": "high",
         "source": "Capture_d_e_cran_2026-05-01_a__21.03.03-aae0f3b1-c3c0-4f8d-a68c-13feea8d5971.png",
         "generated_at": "2026-05-06T01:51:43.130Z"
+      },
+      "gpt_image2_v2": {
+        "model": "openai/gpt-image-2",
+        "endpoint": "images/edits",
+        "quality": "high",
+        "count": 20,
+        "character_logic": "EN=Amina, ES=Sofia",
+        "charter_reference": "Capture_d_e_cran_2026-05-01_a__21.03.03-aae0f3b1-c3c0-4f8d-a68c-13feea8d5971.png",
+        "generated_at": "2026-05-06T02:30:28.311Z"
+      },
+      "opening_video": {
+        "url": "https://v3b.fal.media/files/b/0a99119b/vkbqsL2igsqX59kRzqYJb_video.mp4",
+        "model": "bytedance/seedance-2.0/image-to-video",
+        "provider": "fal",
+        "source": "https://asone-pharmacy-storyboard.netlify.app/assets/gpt-image2-v2/scene-02-en-opening.png",
+        "duration": 5,
+        "resolution": "1080p",
+        "prompt": "Premium healthcare brand animation for Servier As One scene \"A 55-year story across 17 languages\".\nStarting from the provided still frame, keep the same navy brand wall, protagonist, world-map texture and colored As One ribbon paths.\nMotion: slow cinematic push-in, the blue/red/green/yellow/orange ribbons softly glow, light pulses travel along the routes across the world map, subtle parallax on the wall, no extra characters, no fake logos, no product claims, no new text overlays, no distortion of the protagonist.\nElegant MasterClass/Sante Academie healthcare training insert, compliance-safe, realistic, 16:9.",
+        "generated_at": "2026-05-06T03:05:59.698Z",
+        "higgsfield_attempt": "failed: generate_video server error"
       }
     },
     {
       "id": 3,
       "slug": "venous-physiology",
-      "opening": "https://v3b.fal.media/files/b/0a990ea4/hQlixWp82PJmG2x4VH2pc_6xig5jyC.jpg",
-      "closing": "https://v3b.fal.media/files/b/0a990ea4/ws1AqGj1yLt29OWSOgUq6_4vi1RLS5.jpg",
-      "es_opening": "https://v3b.fal.media/files/b/0a990f00/UtA68U513HrdGlo-cBSXX_17EWThKa.jpg",
-      "es_closing": "https://v3b.fal.media/files/b/0a990f01/9iQyd_a0guQ33v3ynFz8N_wYO90Zhg.jpg"
+      "opening": "assets/gpt-image2-v2/scene-03-en-opening.png",
+      "closing": "assets/gpt-image2-v2/scene-03-en-closing.png",
+      "es_opening": "assets/gpt-image2-v2/scene-03-es-opening.png",
+      "es_closing": "assets/gpt-image2-v2/scene-03-es-closing.png",
+      "gpt_image2_v2": {
+        "model": "openai/gpt-image-2",
+        "endpoint": "images/edits",
+        "quality": "high",
+        "count": 20,
+        "character_logic": "EN=Amina, ES=Sofia",
+        "charter_reference": "Capture_d_e_cran_2026-05-01_a__21.03.03-aae0f3b1-c3c0-4f8d-a68c-13feea8d5971.png",
+        "generated_at": "2026-05-06T02:39:52.630Z"
+      }
     },
     {
       "id": 4,
       "slug": "cvd",
-      "opening": "https://v3b.fal.media/files/b/0a990ea4/xFr67D37JS295UgOXuyH2_Xeu6oJnN.jpg",
-      "closing": "https://v3b.fal.media/files/b/0a990ea4/dzWOkv71YUR18OhsBYTL7_FWbXtZg2.jpg",
-      "es_opening": "https://v3b.fal.media/files/b/0a990f00/prKQD1WDmXRWjuQ0c7Chb_GDf7uULo.jpg",
-      "es_closing": "https://v3b.fal.media/files/b/0a990f00/bXiH8wU-YTpCp8PjRv4vt_qfhm5g8N.jpg"
+      "opening": "assets/gpt-image2-v2/scene-04-en-opening.png",
+      "closing": "assets/gpt-image2-v2/scene-04-en-closing.png",
+      "es_opening": "assets/gpt-image2-v2/scene-04-es-opening.png",
+      "es_closing": "assets/gpt-image2-v2/scene-04-es-closing.png",
+      "gpt_image2_v2": {
+        "model": "openai/gpt-image-2",
+        "endpoint": "images/edits",
+        "quality": "high",
+        "count": 20,
+        "character_logic": "EN=Amina, ES=Sofia",
+        "charter_reference": "Capture_d_e_cran_2026-05-01_a__21.03.03-aae0f3b1-c3c0-4f8d-a68c-13feea8d5971.png",
+        "generated_at": "2026-05-06T02:48:34.429Z"
+      }
     },
     {
       "id": 5,
       "slug": "hemorrhoidal",
-      "opening": "https://v3b.fal.media/files/b/0a990ea3/sWsp1ML_DI-l_IWZ6ELHl_14kYJVLV.jpg",
-      "closing": "https://v3b.fal.media/files/b/0a990ea5/LvCbSNFjMs76JYoN5XsQh_vcDvQjHy.jpg",
-      "es_opening": "https://v3b.fal.media/files/b/0a990f00/cgM_b6yjnU3QTFMoZcc0g_uX94TUCF.jpg",
-      "es_closing": "https://v3b.fal.media/files/b/0a990f00/5ALyiBibYjFP5Mew2ZSZm_5vGVfCZI.jpg"
+      "opening": "assets/gpt-image2-v2/scene-05-en-opening.png",
+      "closing": "assets/gpt-image2-v2/scene-05-en-closing.png",
+      "es_opening": "assets/gpt-image2-v2/scene-05-es-opening.png",
+      "es_closing": "assets/gpt-image2-v2/scene-05-es-closing.png",
+      "gpt_image2_v2": {
+        "model": "openai/gpt-image-2",
+        "endpoint": "images/edits",
+        "quality": "high",
+        "count": 20,
+        "character_logic": "EN=Amina, ES=Sofia",
+        "charter_reference": "Capture_d_e_cran_2026-05-01_a__21.03.03-aae0f3b1-c3c0-4f8d-a68c-13feea8d5971.png",
+        "generated_at": "2026-05-06T02:58:26.759Z"
+      }
     }
   ],
   "hero_video": {

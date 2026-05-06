@@ -25,6 +25,12 @@ function imgFor(sceneId, kind) {
   return `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2324226a'/><stop offset='1' stop-color='%23f55b41'/></linearGradient></defs><rect width='800' height='450' fill='url(%23g)'/><text x='50%25' y='50%25' fill='%23fff' text-anchor='middle' font-family='Inter,sans-serif' font-size='22' font-weight='600'>Scene ${sceneId} · ${kind}</text></svg>`)}`;
 }
 
+function videoFor(sceneId, kind) {
+  if (kind !== 'opening') return null;
+  const s = MANIFEST.scenes?.find(x => x.id === sceneId);
+  return s?.opening_video?.url || null;
+}
+
 // ─── 2. cast switch (EN ↔ ES) ──────────────────────────────────────
 function setCast(cast) {
   CURRENT_CAST = cast;
@@ -53,13 +59,16 @@ function renderScenes() {
     const vo = lang === 'es' ? (c.voES || c.voEN) : c.voEN;
     const title = c.title[lang] || c.title.en;
     const tk = c.takeaway[lang] || c.takeaway.en;
+    const openingVideo = videoFor(c.id, 'opening');
     return `
 <article class="scene" id="chapter-${c.id}">
   <div class="scene-marker">SCENE ${String(c.id).padStart(2,'0')}</div>
   <div class="scene-frames">
     <div class="scene-frame">
-      <img loading="lazy" src="${imgFor(c.id, 'opening')}" alt="Scene ${c.id} opening frame">
-      <span class="frame-label">▶ Opening — ${c.scriptRef}</span>
+      ${openingVideo
+        ? `<video class="scene-video" src="${openingVideo}" poster="${imgFor(c.id, 'opening')}" muted loop playsinline autoplay></video>`
+        : `<img loading="lazy" src="${imgFor(c.id, 'opening')}" alt="Scene ${c.id} opening frame">`}
+      <span class="frame-label">▶ Opening${openingVideo ? ' animation' : ''} — ${c.scriptRef}</span>
     </div>
     <div class="scene-frame">
       <img loading="lazy" src="${imgFor(c.id, 'closing')}" alt="Scene ${c.id} closing frame">
