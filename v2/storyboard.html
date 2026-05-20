@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="As One · Storyboard validation V2">
+<title>Storyboard · As One V2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="storyboard.css">
+</head>
+<body class="sb-page">
+
+<header class="sb-header no-print">
+  <a class="sb-back" href="index.html">← Module demo</a>
+  <div class="sb-header-center">
+    <h1>Storyboard · validation</h1>
+    <p>Multiculturalité · langue · commentaires · versioning</p>
+  </div>
+  <div class="sb-header-actions">
+    <div class="cast-switch" data-current="default" role="tablist" aria-label="Ethnicité / langue">
+      <button data-cast="default" class="cs-btn active">EN · Multicultural</button>
+      <button data-cast="es" class="cs-btn">ES · Hispanic</button>
+    </div>
+    <button type="button" class="sb-btn" id="btn-export-compliance">Export compliance</button>
+    <button type="button" class="sb-btn sb-btn-primary" id="btn-export-pdf">Export PDF</button>
+  </div>
+</header>
+
+<section class="sb-intro no-print">
+  <div class="sb-intro-card">
+    <strong>Changement d’ethnicité & de langue</strong>
+    <p>Basculez EN / ES pour prévisualiser le cast multicultural (Amina) ou hispanique (Sofia). Les visuels et scripts s’adaptent — localisation affiliate-ready.</p>
+  </div>
+  <div class="sb-intro-card">
+    <strong>Commentaires & versioning</strong>
+    <p>Notes enregistrées localement par scène. Export compliance (JSON + TXT) ou PDF imprimable avec annotations.</p>
+  </div>
+</section>
+
+<section class="chapters" id="chapters">
+  <header class="chapters-head print-only">
+    <h2>As One Pharmacy E-Learning · Storyboard</h2>
+    <p id="print-meta"></p>
+  </header>
+  <div class="scenes" id="scenes-root"></div>
+
+  <div class="blurred-rail no-print">
+    <div class="rail-overlay">
+      <h3>Chapitres 6 → 10 — en revue médicale</h3>
+      <p>Contenu verrouillé en attente de validation.</p>
+    </div>
+    <div class="blurred-grid" id="blurred-root"></div>
+  </div>
+</section>
+
+<footer class="sb-foot no-print">
+  <span>Servier × Stetoo · Storyboard V2</span>
+  <span id="buildDate"></span>
+  <a href="../index.html">Storyboard V1</a>
+</footer>
+
+<div id="storyboard-lightbox" class="lightbox no-print" role="dialog" aria-modal="true" aria-label="Storyboard plein écran" hidden>
+  <div class="lightbox-backdrop" data-lightbox-close tabindex="-1"></div>
+  <div class="lightbox-panel">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Fermer">×</button>
+    <div class="lightbox-media">
+      <img id="lightbox-image" src="" alt="">
+      <video id="lightbox-video" class="lightbox-video-el" controls playsinline preload="metadata" hidden></video>
+    </div>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+    <div class="lightbox-bar">
+      <button type="button" class="lightbox-navbtn" id="lightbox-prev" aria-label="Précédent">←</button>
+      <span class="lightbox-counter" id="lightbox-counter">1 / 10</span>
+      <button type="button" class="lightbox-navbtn" id="lightbox-next" aria-label="Suivant">→</button>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="export.js"></script>
+<script src="storyboard-app.js"></script>
+</body>
+</html>

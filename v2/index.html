@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MyServier · As One E-Learning · Module demo V2">
+<meta name="theme-color" content="#24226a">
+<title>MyServier · As One E-Learning · V2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="ms-header" id="top">
+  <a class="ms-brand" href="#hero">
+    <span class="ms-brand-servier">My Servier</span>
+    <span class="ms-brand-sub">As One · E-learning</span>
+  </a>
+  <nav class="ms-nav" aria-label="Sections clés">
+    <a href="#module-0">Onboarding</a>
+    <a href="#module-1">Module 1</a>
+    <a href="#quiz">Quiz</a>
+    <a href="storyboard.html">Storyboard</a>
+  </nav>
+  <div class="ms-header-actions">
+    <div class="cast-switch" data-current="default" role="tablist" aria-label="Langue / multiculturalité">
+      <button data-cast="default" class="cs-btn active">Multicultural</button>
+      <button data-cast="es" class="cs-btn">Hispanic</button>
+    </div>
+    <button type="button" class="ms-btn ms-btn-outline" id="btn-export-compliance">Export compliance</button>
+    <a class="ms-btn ms-btn-ghost" href="../index.html" title="Version storyboard V1">V1</a>
+  </div>
+</header>
+
+<section class="ms-hero" id="hero">
+  <div class="ms-hero-inner">
+    <div class="ms-hero-copy">
+      <span class="ms-eyebrow">Servier · Pharmacy · Phase 2</span>
+      <h1 id="hero-title">Bienvenue dans le module<br><em>e-learning As One</em></h1>
+      <p id="hero-sub">Parcours MyServier — teaser onboarding, démo module, validation interactive.</p>
+      <div class="ms-hero-actions">
+        <a class="ms-btn ms-btn-primary" href="#module-0">Commencer</a>
+        <a class="ms-btn ms-btn-outline-light" href="storyboard.html">Storyboard</a>
+      </div>
+    </div>
+    <div class="ms-hero-visual">
+      <img src="assets/images/hero-vero-mirror.png" alt="Pharmacienne As One — visuel premium" width="960" height="640" decoding="async">
+    </div>
+  </div>
+</section>
+
+<main class="ms-main">
+
+  <!-- Module 0 -->
+  <section class="ms-module" id="module-0">
+    <header class="ms-module-head">
+      <span class="ms-module-num">00</span>
+      <div>
+        <h2 id="m0-label">Module 0 — Onboarding</h2>
+        <p id="m0-desc">Concept global · immeuble As One · univers visuel · effet wow.</p>
+      </div>
+    </header>
+    <div class="ms-video-card">
+      <div class="ms-video-label" id="m0-video-title">Vidéo Onboarding</div>
+      <div class="ms-video-shell">
+        <video class="ms-video" src="assets/videos/onboarding-teaser.mp4" controls playsinline preload="metadata" poster="../assets/gpt-image2-v2/scene-02-en-opening.png"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Module 1 -->
+  <section class="ms-module" id="module-1">
+    <header class="ms-module-head">
+      <span class="ms-module-num">01</span>
+      <div>
+        <h2 id="m1-label">Module 1 — Physiologie veineuse</h2>
+        <p id="m1-desc">Depuis l’immeuble global jusqu’à une pièce dédiée — intro réaliste + technicité médicale.</p>
+      </div>
+    </header>
+    <div class="ms-video-card">
+      <div class="ms-video-label" id="m1-video-title">Vidéo 1.1 — Circulation sanguine & veines</div>
+      <div class="ms-video-shell">
+        <video class="ms-video" src="assets/videos/module1-demo.mp4" controls playsinline preload="metadata" poster="../assets/gpt-image2-v2/scene-03-en-opening.png"></video>
+      </div>
+    </div>
+
+    <div class="ms-takeaways">
+      <div class="ms-takeaways-head">
+        <h3>Key Takeaways</h3>
+        <span class="ms-tag">9:16 · visuels placeholder</span>
+      </div>
+      <div class="ms-takeaway-grid" id="takeaway-grid"><!-- injected --></div>
+      <p class="ms-upsell" id="m1-upsell">Option commerciale · capsules takeaway vidéo + PDF récap</p>
+    </div>
+
+    <div class="ms-resume-card">
+      <div class="ms-resume-icon">◈</div>
+      <div>
+        <h4>Résumé · infographie module</h4>
+        <p>Placeholder GPT Image 2 high — infographie récapitulative du topic (circulation veineuse, valves, cycle inflammatoire).</p>
+        <span class="ms-locked">PDF récap · option livrable</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz -->
+  <section class="ms-module ms-quiz" id="quiz">
+    <header class="ms-module-head">
+      <span class="ms-module-num">✓</span>
+      <div>
+        <h2 id="quiz-label">Quiz validation module</h2>
+        <p id="quiz-desc">Placeholder — 3 séquences illustrées intégrées au LMS / MyServier.</p>
+      </div>
+    </header>
+    <div class="ms-genially-placeholder">
+      <div class="ms-genially-badge">Genially</div>
+      <h3 id="quiz-title">Genially · quiz interactif</h3>
+      <p>Knowledge assessment — validation du module avant passage au suivant. Intégration iframe LMS / MyServier.</p>
+      <div class="ms-genially-steps">
+        <div class="ms-genially-step"><span>1</span><p>Séquence intro · rappel des points clés</p></div>
+        <div class="ms-genially-step"><span>2</span><p>Questions interactives · cas counter</p></div>
+        <div class="ms-genially-step"><span>3</span><p>Feedback & score · certificat module</p></div>
+      </div>
+      <button type="button" class="ms-btn ms-btn-disabled" disabled>Lancer le quiz · placeholder</button>
+    </div>
+  </section>
+
+  <!-- Storyboard CTA -->
+  <section class="ms-storyboard-cta">
+    <div>
+      <h2>Storyboard · validation créative</h2>
+      <p>Multiculturalité · changement de langue · commentaires · export PDF avec annotations.</p>
+    </div>
+    <a class="ms-btn ms-btn-primary" href="storyboard.html">Ouvrir le storyboard</a>
+  </section>
+
+</main>
+
+<footer class="ms-foot">
+  <div class="ms-foot-row">
+    <span>Servier × Stetoo · As One · V2 demo</span>
+    <span class="ms-foot-date" id="buildDate"></span>
+    <span>Confidentiel · review interne</span>
+  </div>
+  <p class="ms-foot-note">Maquette MyServier — non destinée à un usage promotionnel. Assets soumis à validation médicale Servier.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="export.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
