@@ -124,7 +124,7 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
   display: grid;
   grid-template-columns: 1fr 1.05fr;
   min-height: min(72vh, 680px);
-  align-items: center;
+  align-items: stretch;
 }
 .ms-hero-copy {
   display: flex;
@@ -157,17 +157,16 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
 .ms-hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .ms-hero-visual {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-height: 320px;
-  padding: 12px 12px 12px 0;
+  min-height: 100%;
+  align-self: stretch;
+  overflow: hidden;
 }
 .ms-hero-visual img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  max-height: min(68vh, 640px);
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
   object-position: center right;
 }
 .ms-hero-visual::before {
@@ -180,8 +179,12 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
 }
 @media (max-width: 900px) {
   .ms-hero-inner { grid-template-columns: 1fr; min-height: auto; }
-  .ms-hero-visual { order: -1; max-height: none; padding: 0; justify-content: center; }
-  .ms-hero-visual img { max-height: none; width: 100%; object-position: center; }
+  .ms-hero-visual {
+    order: -1;
+    min-height: min(50vh, 420px);
+    position: relative;
+  }
+  .ms-hero-visual img { object-position: center top; }
   .ms-hero-copy { padding: 32px 24px 48px; }
 }
 
