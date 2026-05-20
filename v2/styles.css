@@ -267,13 +267,13 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
 .ms-takeaway-card { margin: 0; display: flex; flex-direction: column; }
 .ms-takeaway-frame {
   position: relative;
-  flex: 1;
-  aspect-ratio: 9/16;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--navy-deep);
   box-shadow: 0 10px 32px rgba(36, 34, 106, 0.14);
+  display: flex;
+  flex-direction: column;
 }
 .ms-takeaway-frame::after {
   content: '';
@@ -281,51 +281,42 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
   top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--orange), #ff8a65);
-  z-index: 3;
+  z-index: 4;
 }
-.ms-takeaway-frame::before {
-  content: '';
+.ms-takeaway-bg {
   position: absolute;
   inset: 0;
-  z-index: 1;
-  background: rgba(13, 12, 42, 0.55);
-  pointer-events: none;
-}
-.ms-takeaway-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  opacity: 0.35;
-  filter: saturate(0.7) brightness(0.8);
+  opacity: 0.55;
+  filter: saturate(0.8) brightness(0.9);
+  z-index: 0;
 }
-/* overlay plein cadre — kicker + titre toujours visibles, scroll si besoin */
-.ms-takeaway-overlay {
-  position: absolute;
-  inset: 0;
+.ms-takeaway-body {
+  position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  padding: 110px 0 0;
+  min-height: 100%;
+}
+.ms-takeaway-overlay {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   gap: 0;
-  padding: 46px 14px 16px;
-  background: linear-gradient(
-    180deg,
-    rgba(13, 12, 42, 0.82) 0%,
-    rgba(13, 12, 42, 0.9) 45%,
-    rgba(13, 12, 42, 0.96) 100%
-  );
+  padding: 16px 14px 18px;
+  background: rgba(13, 12, 42, 0.75);
   color: #fff;
-  overflow-x: hidden;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
+  overflow: visible;
 }
 .ms-tk-index {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 4;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
   font-family: var(--mono);
   font-size: 0.72rem;
   font-weight: 800;
@@ -460,7 +451,8 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
 }
 
 @media (max-width: 720px) {
-  .ms-takeaway-grid { grid-template-columns: 1fr; max-width: 280px; margin: 0 auto; }
+  .ms-takeaway-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+  .ms-takeaway-body { padding-top: 90px; }
   .ms-module { padding: 22px 18px; }
 }
 

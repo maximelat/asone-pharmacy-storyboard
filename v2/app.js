@@ -85,15 +85,17 @@ function renderTakeaways() {
         return `
     <figure class="ms-takeaway-card">
       <div class="ms-takeaway-frame">
-        <img src="${imgForTakeaway(tk.sceneId, tk.key)}" alt="${t(tk.title)}" loading="lazy">
-        <div class="ms-takeaway-overlay">
-          <span class="ms-tk-kicker">${t(tk.kicker)}</span>
-          <strong class="ms-tk-title">${t(tk.title)}</strong>
-          <p class="ms-tk-summary">${t(tk.summary)}</p>
-          <ul class="ms-tk-list">${bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
-          <p class="ms-tk-action">${t(tk.action)}</p>
+        <img class="ms-takeaway-bg" src="${imgForTakeaway(tk.sceneId, tk.key)}" alt="" loading="lazy" aria-hidden="true">
+        <div class="ms-takeaway-body">
+          <span class="ms-tk-index">${String(i + 1).padStart(2, '0')}</span>
+          <div class="ms-takeaway-overlay">
+            <span class="ms-tk-kicker">${t(tk.kicker)}</span>
+            <strong class="ms-tk-title">${t(tk.title)}</strong>
+            <p class="ms-tk-summary">${t(tk.summary)}</p>
+            <ul class="ms-tk-list">${bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
+            <p class="ms-tk-action">${t(tk.action)}</p>
+          </div>
         </div>
-        <span class="ms-tk-index">${String(i + 1).padStart(2, '0')}</span>
       </div>
       <figcaption><span>${t(tk.kicker)}</span>${t(tk.title)}</figcaption>
     </figure>`;
