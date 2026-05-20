@@ -80,17 +80,24 @@ function renderTakeaways() {
   if (!root) return;
   root.innerHTML = ASONE.MODULES.module1.takeaways
     .map(
-      (tk) => `
+      (tk, i) => {
+        const bullets = tk.bullets.fr || tk.bullets.en;
+        return `
     <figure class="ms-takeaway-card">
       <div class="ms-takeaway-frame">
         <img src="${imgForTakeaway(tk.sceneId, tk.key)}" alt="${t(tk.title)}" loading="lazy">
         <div class="ms-takeaway-overlay">
-          <strong>${t(tk.title)}</strong>
-          <ul>${(tk.bullets.fr || tk.bullets.en).map((b) => `<li>${b}</li>`).join('')}</ul>
+          <span class="ms-tk-kicker">${t(tk.kicker)}</span>
+          <strong class="ms-tk-title">${t(tk.title)}</strong>
+          <p class="ms-tk-summary">${t(tk.summary)}</p>
+          <ul class="ms-tk-list">${bullets.map((b) => `<li>${b}</li>`).join('')}</ul>
+          <p class="ms-tk-action">${t(tk.action)}</p>
         </div>
+        <span class="ms-tk-index">${String(i + 1).padStart(2, '0')}</span>
       </div>
-      <figcaption>${t(tk.title)}</figcaption>
-    </figure>`
+      <figcaption><span>${t(tk.kicker)}</span>${t(tk.title)}</figcaption>
+    </figure>`;
+      }
     )
     .join('');
 }

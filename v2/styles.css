@@ -256,23 +256,52 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
 .ms-takeaway-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 20px;
+  align-items: stretch;
 }
-.ms-takeaway-card { margin: 0; }
+.ms-takeaway-card { margin: 0; display: flex; flex-direction: column; }
 .ms-takeaway-frame {
+  position: relative;
+  flex: 1;
   aspect-ratio: 9/16;
-  border-radius: 10px;
+  border-radius: 14px;
   overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--navy-soft);
+  background: var(--navy-deep);
+  box-shadow: 0 10px 32px rgba(36, 34, 106, 0.14);
 }
-.ms-takeaway-frame img { width: 100%; height: 100%; object-fit: cover; }
+.ms-takeaway-frame::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), #ff8a65);
+  z-index: 3;
+}
+.ms-takeaway-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  filter: saturate(0.85) contrast(1.05);
+}
 .ms-takeaway-card figcaption {
-  margin-top: 8px;
-  font-size: 0.78rem;
-  font-weight: 600;
+  margin-top: 10px;
+  font-size: 0.76rem;
+  font-weight: 700;
   color: var(--navy);
-  text-align: center;
+  text-align: left;
+  line-height: 1.35;
+}
+.ms-takeaway-card figcaption span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 700;
+  margin-bottom: 2px;
 }
 .ms-upsell {
   margin-top: 18px;
@@ -437,20 +466,108 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
 .blurred-rail-inline .rail-overlay p { color: var(--muted) !important; }
 
 /* takeaway overlay */
-.ms-takeaway-frame { position: relative; }
 .ms-takeaway-overlay {
   position: absolute;
-  inset: auto 0 0 0;
-  padding: 14px 12px;
-  background: linear-gradient(transparent, rgba(13,12,42,0.92));
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px 14px 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 12, 42, 0.08) 0%,
+    rgba(13, 12, 42, 0.72) 38%,
+    rgba(13, 12, 42, 0.96) 100%
+  );
   color: #fff;
-  font-size: 0.72rem;
-  line-height: 1.35;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
-.ms-takeaway-overlay strong { display: block; font-size: 0.78rem; margin-bottom: 6px; color: #fff; }
-.ms-takeaway-overlay ul { list-style: none; padding: 0; margin: 0; }
-.ms-takeaway-overlay li { padding: 2px 0; padding-left: 10px; position: relative; }
-.ms-takeaway-overlay li::before { content: '·'; position: absolute; left: 0; color: var(--orange); }
+.ms-tk-index {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 4;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+  background: rgba(245, 91, 65, 0.92);
+  padding: 5px 8px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.ms-tk-kicker {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.54rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(245, 91, 65, 0.45);
+  width: 100%;
+}
+.ms-tk-title {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.ms-tk-summary {
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 10px;
+  padding-left: 8px;
+  border-left: 2px solid var(--orange);
+}
+.ms-tk-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.ms-tk-list li {
+  font-size: 0.64rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 5px 8px 5px 22px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.ms-tk-list li::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0.65em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 6px rgba(245, 91, 65, 0.6);
+}
+.ms-tk-action {
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #ffd4ca;
+  padding: 8px 10px;
+  background: rgba(245, 91, 65, 0.18);
+  border-radius: 8px;
+  border: 1px solid rgba(245, 91, 65, 0.35);
+  margin-top: auto;
+}
 
 /* infographie */
 .ms-resume-visual { display: block !important; padding: 0; overflow: hidden; border-style: solid; }

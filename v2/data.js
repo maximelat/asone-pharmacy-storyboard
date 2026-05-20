@@ -151,26 +151,87 @@ const MODULES = {
     takeaways: [
       {
         sceneId: 3, key: 'opening',
+        kicker: { fr: '01 · Anatomie', en: '01 · Anatomy' },
         title: { fr: 'Le réservoir veineux', en: 'The venous reservoir' },
+        summary: {
+          fr: 'Les veines ne transportent pas seulement le sang — elles le stockent. Comprendre ce réservoir explique pourquoi la stase veineuse est si fréquente au comptoir.',
+          en: 'Veins don’t just carry blood — they store it. Understanding this reservoir explains why venous stasis is so common at the counter.',
+        },
         bullets: {
-          fr: ['100 000 km de vaisseaux dans un corps', '⅔ du volume sanguin au repos', '30× plus distensible que l’artère'],
-          en: ['100,000 km of vessels in one body', '⅔ of blood volume at rest', '30× more compliant than arteries'],
+          fr: [
+            '~100 000 km d’artères, veines et capillaires',
+            '⅔ du volume sanguin contenu dans les veines au repos',
+            '30× plus distensibles que les artères',
+            'Réservoir tampon entre deux systèmes',
+          ],
+          en: [
+            '~100,000 km of arteries, veins and capillaries',
+            '⅔ of blood volume held in veins at rest',
+            '30× more distensible than arteries',
+            'Buffer reservoir between two systems',
+          ],
+        },
+        action: {
+          fr: '→ Repérer les patients « jambes lourdes » sans signe visible : déjà un signal veineux.',
+          en: '→ Spot “heavy legs” with no visible sign: already a venous signal.',
         },
       },
       {
         sceneId: 3, key: 'closing',
+        kicker: { fr: '02 · Physiologie', en: '02 · Physiology' },
         title: { fr: 'Valves & pompe musculaire', en: 'Valves & muscle pump' },
+        summary: {
+          fr: 'Deux mécanismes compensent la gravité : les valves anti-reflux et la pompe musculaire, dont la pompe plantaire profonde joue un rôle majeur chez les patients actifs.',
+          en: 'Two mechanisms fight gravity: anti-reflux valves and the muscle pump, with the deep plantar pump playing a major role in active patients.',
+        },
         bullets: {
-          fr: ['Valves anti-reflux', 'Pompe musculaire esquelettique', 'Pompe plantaire profonde'],
-          en: ['Anti-reflux valves', 'Skeletal muscle pump', 'Deep plantar pump'],
+          fr: [
+            'Valves veineuses : barrières unidirectionnelles',
+            'Pompe musculaire esquelettique à la marche',
+            'Pompe plantaire profonde — rôle clé',
+            'Défaillance valvulaire = reflux chronique',
+            'Bipedestation prolongée = pompe inactive',
+          ],
+          en: [
+            'Venous valves: one-way barriers',
+            'Skeletal muscle pump when walking',
+            'Deep plantar pump — key role',
+            'Valve failure = chronic reflux',
+            'Prolonged standing = inactive pump',
+          ],
+        },
+        action: {
+          fr: '→ Conseiller marche, surélévation et compression précoce avant l’apparition de varices.',
+          en: '→ Counsel walking, elevation and early compression before varices appear.',
         },
       },
       {
         sceneId: 4, key: 'opening',
+        kicker: { fr: '03 · Clinique', en: '03 · Clinical' },
         title: { fr: 'EVC · 80 % silencieux', en: 'CVD · silent 80%' },
+        summary: {
+          fr: 'La maladie veineuse chronique touche 8 patients sur 10 — souvent sans signe visible. Le CEAP C0 (symptômes sans signes) est déjà une condition clinique à prendre au sérieux.',
+          en: 'Chronic venous disease affects 8 in 10 patients — often with no visible sign. CEAP C0 (symptoms without signs) is already a clinical condition.',
+        },
         bullets: {
-          fr: ['8 patients sur 10 concernés', 'CEAP C0 = déjà clinique', 'Le pharmacien en 1ère ligne'],
-          en: ['8 in 10 patients affected', 'CEAP C0 = clinical', 'Pharmacist first line of defence'],
+          fr: [
+            '80 % des patients en pharmacie touchés (stades C0–C6)',
+            'CEAP C0 : lourdeur, crampes, sans varice visible',
+            'Telangiectasies = 1er signe visible de dysfonction',
+            'Facteurs modifiables : obésité, sédentarité, tabac',
+            'Étude d’Édimbourg : ~30 % de progression sur 13 ans',
+          ],
+          en: [
+            '80% of pharmacy patients affected (C0–C6 stages)',
+            'CEAP C0: heaviness, cramps, no visible varices',
+            'Telangiectasias = first visible sign of failure',
+            'Modifiable factors: obesity, sedentary life, tobacco',
+            'Edinburgh Vein Study: ~30% progression over 13 years',
+          ],
+        },
+        action: {
+          fr: '→ Questionner systématiquement : lourdeur, œdème du soir, antécédents familiaux.',
+          en: '→ Systematically ask about heaviness, evening edema, family history.',
         },
       },
     ],

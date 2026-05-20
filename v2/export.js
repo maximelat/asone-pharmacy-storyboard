@@ -54,7 +54,7 @@ function buildCompliancePack(cast = 'default') {
         label: modules.module1.label[lang] || modules.module1.label.fr,
         video: modules.module1.videoSrc,
         description: modules.module1.desc[lang] || modules.module1.desc.fr,
-        takeaways: modules.module1.takeaways.map((t) => t.label[lang] || t.label.fr),
+        takeaways: modules.module1.takeaways.map((tk) => tk.title[lang] || tk.title.fr || tk.title.en),
       },
     },
     scenes,
