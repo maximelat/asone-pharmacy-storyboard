@@ -149,14 +149,31 @@ const MODULES = {
       fr: 'Depuis l’immeuble global jusqu’à une pièce dédiée — intro 5–10 s avec personnage réaliste + technicité médicale.',
     },
     takeaways: [
-      { key: 'opening', sceneId: 3, label: { en: 'Valves & muscle pump', fr: 'Valves & pompe musculaire' } },
-      { key: 'closing', sceneId: 3, label: { en: 'Inflamed vein cycle', fr: 'Cycle veine inflamée' } },
-      { key: 'opening', sceneId: 4, label: { en: 'CEAP early signals', fr: 'Signaux CEAP précoces' } },
+      {
+        sceneId: 3, key: 'opening',
+        title: { fr: 'Le réservoir veineux', en: 'The venous reservoir' },
+        bullets: {
+          fr: ['100 000 km de vaisseaux dans un corps', '⅔ du volume sanguin au repos', '30× plus distensible que l’artère'],
+          en: ['100,000 km of vessels in one body', '⅔ of blood volume at rest', '30× more compliant than arteries'],
+        },
+      },
+      {
+        sceneId: 3, key: 'closing',
+        title: { fr: 'Valves & pompe musculaire', en: 'Valves & muscle pump' },
+        bullets: {
+          fr: ['Valves anti-reflux', 'Pompe musculaire esquelettique', 'Pompe plantaire profonde'],
+          en: ['Anti-reflux valves', 'Skeletal muscle pump', 'Deep plantar pump'],
+        },
+      },
+      {
+        sceneId: 4, key: 'opening',
+        title: { fr: 'EVC · 80 % silencieux', en: 'CVD · silent 80%' },
+        bullets: {
+          fr: ['8 patients sur 10 concernés', 'CEAP C0 = déjà clinique', 'Le pharmacien en 1ère ligne'],
+          en: ['8 in 10 patients affected', 'CEAP C0 = clinical', 'Pharmacist first line of defence'],
+        },
+      },
     ],
-    upsell: {
-      en: 'Optional deliverable · video takeaway capsules + PDF recap',
-      fr: 'Option commerciale · capsules takeaway vidéo + PDF récap',
-    },
   },
   quiz: {
     label: { en: 'Module validation quiz', fr: 'Quiz validation module' },

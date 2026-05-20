@@ -22,14 +22,11 @@
     <a href="#module-0">Onboarding</a>
     <a href="#module-1">Module 1</a>
     <a href="#quiz">Quiz</a>
-    <a href="storyboard.html">Storyboard</a>
+    <a href="#storyboard">Storyboard</a>
   </nav>
   <div class="ms-header-actions">
-    <div class="cast-switch" data-current="default" role="tablist" aria-label="Langue / multiculturalité">
-      <button data-cast="default" class="cs-btn active">Multicultural</button>
-      <button data-cast="es" class="cs-btn">Hispanic</button>
-    </div>
     <button type="button" class="ms-btn ms-btn-outline" id="btn-export-compliance">Export compliance</button>
+    <button type="button" class="ms-btn ms-btn-outline" id="btn-export-pdf">Export PDF</button>
     <a class="ms-btn ms-btn-ghost" href="../index.html" title="Version storyboard V1">V1</a>
   </div>
 </header>
@@ -42,7 +39,7 @@
       <p id="hero-sub">Parcours MyServier — teaser onboarding, démo module, validation interactive.</p>
       <div class="ms-hero-actions">
         <a class="ms-btn ms-btn-primary" href="#module-0">Commencer</a>
-        <a class="ms-btn ms-btn-outline-light" href="storyboard.html">Storyboard</a>
+        <a class="ms-btn ms-btn-outline-light" href="#storyboard">Storyboard</a>
       </div>
     </div>
     <div class="ms-hero-visual">
@@ -53,7 +50,6 @@
 
 <main class="ms-main">
 
-  <!-- Module 0 -->
   <section class="ms-module" id="module-0">
     <header class="ms-module-head">
       <span class="ms-module-num">00</span>
@@ -65,12 +61,11 @@
     <div class="ms-video-card">
       <div class="ms-video-label" id="m0-video-title">Vidéo Onboarding</div>
       <div class="ms-video-shell">
-        <video class="ms-video" src="assets/videos/onboarding-teaser.mp4" controls playsinline preload="metadata" poster="../assets/gpt-image2-v2/scene-02-en-opening.png"></video>
+        <video class="ms-video" src="assets/videos/onboarding-teaser.mp4" controls playsinline preload="metadata"></video>
       </div>
     </div>
   </section>
 
-  <!-- Module 1 -->
   <section class="ms-module" id="module-1">
     <header class="ms-module-head">
       <span class="ms-module-num">01</span>
@@ -82,58 +77,67 @@
     <div class="ms-video-card">
       <div class="ms-video-label" id="m1-video-title">Vidéo 1.1 — Circulation sanguine & veines</div>
       <div class="ms-video-shell">
-        <video class="ms-video" src="assets/videos/module1-demo.mp4" controls playsinline preload="metadata" poster="../assets/gpt-image2-v2/scene-03-en-opening.png"></video>
+        <video class="ms-video" src="assets/videos/module1-demo.mp4" controls playsinline preload="metadata"></video>
       </div>
     </div>
 
     <div class="ms-takeaways">
       <div class="ms-takeaways-head">
         <h3>Key Takeaways</h3>
-        <span class="ms-tag">9:16 · visuels placeholder</span>
+        <span class="ms-tag">9:16 · module 1</span>
       </div>
-      <div class="ms-takeaway-grid" id="takeaway-grid"><!-- injected --></div>
-      <p class="ms-upsell" id="m1-upsell">Option commerciale · capsules takeaway vidéo + PDF récap</p>
+      <div class="ms-takeaway-grid" id="takeaway-grid"></div>
     </div>
 
-    <div class="ms-resume-card">
-      <div class="ms-resume-icon">◈</div>
+    <div class="ms-resume-card ms-resume-visual">
       <div>
         <h4>Résumé · infographie module</h4>
-        <p>Placeholder GPT Image 2 high — infographie récapitulative du topic (circulation veineuse, valves, cycle inflammatoire).</p>
-        <span class="ms-locked">PDF récap · option livrable</span>
+        <p>Physiologie veineuse — circulation, cycle inflammatoire, rôle du pharmacien au comptoir.</p>
       </div>
+      <figure class="ms-infographic-wrap">
+        <img src="assets/images/module1-infographic.png" alt="Infographie résumé — physiologie veineuse As One" loading="lazy" width="1200" height="675">
+      </figure>
     </div>
   </section>
 
-  <!-- Quiz -->
   <section class="ms-module ms-quiz" id="quiz">
     <header class="ms-module-head">
       <span class="ms-module-num">✓</span>
       <div>
         <h2 id="quiz-label">Quiz validation module</h2>
-        <p id="quiz-desc">Placeholder — 3 séquences illustrées intégrées au LMS / MyServier.</p>
+        <p id="quiz-desc">Quiz interactif en 3 séquences — intégration LMS / MyServier.</p>
       </div>
     </header>
-    <div class="ms-genially-placeholder">
-      <div class="ms-genially-badge">Genially</div>
-      <h3 id="quiz-title">Genially · quiz interactif</h3>
-      <p>Knowledge assessment — validation du module avant passage au suivant. Intégration iframe LMS / MyServier.</p>
-      <div class="ms-genially-steps">
-        <div class="ms-genially-step"><span>1</span><p>Séquence intro · rappel des points clés</p></div>
-        <div class="ms-genially-step"><span>2</span><p>Questions interactives · cas counter</p></div>
-        <div class="ms-genially-step"><span>3</span><p>Feedback & score · certificat module</p></div>
-      </div>
-      <button type="button" class="ms-btn ms-btn-disabled" disabled>Lancer le quiz · placeholder</button>
-    </div>
+    <div id="quiz-app" class="quiz-app"></div>
   </section>
 
-  <!-- Storyboard CTA -->
-  <section class="ms-storyboard-cta">
-    <div>
-      <h2>Storyboard · validation créative</h2>
-      <p>Multiculturalité · changement de langue · commentaires · export PDF avec annotations.</p>
+  <!-- Storyboard inline (V1) -->
+  <section class="ms-storyboard-section" id="storyboard">
+    <header class="ms-storyboard-head">
+      <div>
+        <span class="ms-eyebrow dark">Validation créative</span>
+        <h2>Storyboard · validation créative</h2>
+        <p>5 scènes développées · commentaires · versioning · bascule cast pour prévisualiser la localisation.</p>
+      </div>
+      <div class="storyboard-cast-bar">
+        <span class="cast-label">Cast storyboard</span>
+        <div class="cast-switch" id="storyboard-cast-switch" data-current="default" role="tablist">
+          <button data-cast="default" class="cs-btn active">African</button>
+          <button data-cast="es" class="cs-btn">Hispanic</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="chapters chapters-inline">
+      <div class="scenes" id="scenes-root"></div>
+      <div class="blurred-rail blurred-rail-inline">
+        <div class="rail-overlay">
+          <h3>Chapitres 6 → 10 — en revue médicale</h3>
+          <p>Contenu verrouillé en attente de validation.</p>
+        </div>
+        <div class="blurred-grid" id="blurred-root"></div>
+      </div>
     </div>
-    <a class="ms-btn ms-btn-primary" href="storyboard.html">Ouvrir le storyboard</a>
   </section>
 
 </main>
@@ -147,8 +151,26 @@
   <p class="ms-foot-note">Maquette MyServier — non destinée à un usage promotionnel. Assets soumis à validation médicale Servier.</p>
 </footer>
 
+<div id="storyboard-lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Storyboard plein écran" hidden>
+  <div class="lightbox-backdrop" data-lightbox-close tabindex="-1"></div>
+  <div class="lightbox-panel">
+    <button type="button" class="lightbox-close" data-lightbox-close aria-label="Fermer">×</button>
+    <div class="lightbox-media">
+      <img id="lightbox-image" src="" alt="">
+      <video id="lightbox-video" class="lightbox-video-el" controls playsinline preload="metadata" hidden></video>
+    </div>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+    <div class="lightbox-bar">
+      <button type="button" class="lightbox-navbtn" id="lightbox-prev" aria-label="Précédent">←</button>
+      <span class="lightbox-counter" id="lightbox-counter">1 / 10</span>
+      <button type="button" class="lightbox-navbtn" id="lightbox-next" aria-label="Suivant">→</button>
+    </div>
+  </div>
+</div>
+
 <script src="data.js"></script>
 <script src="export.js"></script>
+<script src="quiz.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

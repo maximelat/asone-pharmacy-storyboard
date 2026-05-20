@@ -1,4 +1,5 @@
 /* MyServier · As One V2 — maquette e-learning */
+@import url('../styles.css');
 
 :root {
   --navy: #24226a;
@@ -394,4 +395,149 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
   font-size: 0.75rem;
   color: var(--muted);
   line-height: 1.5;
+}
+
+/* ── storyboard inline (V1 scenes) ── */
+.ms-storyboard-section {
+  max-width: 1180px;
+  margin: 0 auto 48px;
+  padding: 0 8px;
+}
+.ms-storyboard-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding: 28px 32px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 16px;
+}
+.ms-storyboard-head h2 { font-size: 1.45rem; font-weight: 800; margin-bottom: 8px; }
+.ms-storyboard-head p { color: rgba(255,255,255,0.72); font-size: 0.9rem; max-width: 560px; }
+.ms-eyebrow.dark { color: rgba(255,255,255,0.55); display: block; margin-bottom: 8px; }
+.storyboard-cast-bar { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.cast-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+.ms-storyboard-section .cast-switch { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.ms-storyboard-section .cs-btn { color: rgba(255,255,255,0.7); }
+.ms-storyboard-section .cs-btn.active { background: var(--orange); color: #fff; }
+
+.chapters-inline { padding: 0 !important; max-width: none !important; margin: 0 !important; }
+.chapters-inline .scenes { gap: 22px; }
+.blurred-rail-inline { margin-top: 48px !important; padding-top: 32px !important; }
+.blurred-rail-inline .rail-overlay h3 { color: var(--navy) !important; }
+.blurred-rail-inline .rail-overlay p { color: var(--muted) !important; }
+
+/* takeaway overlay */
+.ms-takeaway-frame { position: relative; }
+.ms-takeaway-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 14px 12px;
+  background: linear-gradient(transparent, rgba(13,12,42,0.92));
+  color: #fff;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+.ms-takeaway-overlay strong { display: block; font-size: 0.78rem; margin-bottom: 6px; color: #fff; }
+.ms-takeaway-overlay ul { list-style: none; padding: 0; margin: 0; }
+.ms-takeaway-overlay li { padding: 2px 0; padding-left: 10px; position: relative; }
+.ms-takeaway-overlay li::before { content: '·'; position: absolute; left: 0; color: var(--orange); }
+
+/* infographie */
+.ms-resume-visual { display: block !important; padding: 0; overflow: hidden; border-style: solid; }
+.ms-resume-visual > div { padding: 20px 20px 0; }
+.ms-infographic-wrap { margin: 0; }
+.ms-infographic-wrap img { width: 100%; height: auto; display: block; border-radius: 0 0 12px 12px; }
+
+/* quiz interactif */
+.quiz-app { min-height: 320px; }
+.quiz-seq { animation: quizIn 0.35s ease; }
+@keyframes quizIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.quiz-seq-head { margin-bottom: 20px; }
+.quiz-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  background: var(--navy-soft);
+  color: var(--navy);
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.quiz-seq-head h3 { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+.quiz-seq-head p { color: var(--muted); font-size: 0.9rem; }
+.quiz-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 22px; }
+.quiz-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 16px rgba(36,34,106,0.06);
+}
+.quiz-card-icon { font-size: 1.4rem; color: var(--orange); display: block; margin-bottom: 8px; }
+.quiz-card strong { display: block; font-size: 0.88rem; color: var(--navy); margin-bottom: 6px; }
+.quiz-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+.quiz-prompt { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; line-height: 1.4; }
+.quiz-options { display: flex; flex-direction: column; gap: 10px; }
+.quiz-opt {
+  text-align: left;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--orange); background: #fdf0ed; }
+.quiz-opt:disabled { cursor: default; }
+.quiz-opt.correct { border-color: #2a9d6a; background: #edf9f2; }
+.quiz-opt.wrong { border-color: #c0392b; background: #fdf0ef; }
+.quiz-feedback { margin-top: 18px; padding: 16px; border-radius: 10px; }
+.quiz-feedback.ok { background: #edf9f2; border: 1px solid #2a9d6a; }
+.quiz-feedback.ko { background: #fdf0ef; border: 1px solid #c0392b; }
+.quiz-feedback strong { display: block; margin-bottom: 6px; font-size: 0.85rem; }
+.quiz-feedback p { font-size: 0.86rem; color: var(--muted); margin-bottom: 14px; }
+.quiz-result { text-align: center; }
+.quiz-score-ring {
+  width: 120px; height: 120px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: conic-gradient(var(--orange) calc(var(--pct, 75) * 1%), var(--navy-soft) 0);
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.quiz-score-ring::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  background: #fff;
+  border-radius: 50%;
+}
+.quiz-score-ring span { position: relative; z-index: 1; font-size: 1.6rem; font-weight: 800; color: var(--navy); }
+.quiz-score-ring[data-pct="0"] { --pct: 0; }
+.quiz-score-ring[data-pct="25"] { --pct: 25; }
+.quiz-score-ring[data-pct="50"] { --pct: 50; }
+.quiz-score-ring[data-pct="75"] { --pct: 75; }
+.quiz-score-ring[data-pct="100"] { --pct: 100; }
+.quiz-score-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.quiz-result-msg { color: var(--muted); max-width: 480px; margin: 0 auto 20px; font-size: 0.92rem; }
+.quiz-result-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 720px) {
+  .quiz-cards { grid-template-columns: 1fr; }
+  .ms-storyboard-head { padding: 20px; }
+  .storyboard-cast-bar { align-items: flex-start; width: 100%; }
+}
+
+@media print {
+  .ms-header, .ms-hero, .ms-module, .ms-foot, .ms-storyboard-head, .blurred-rail-inline, .no-print { display: none !important; }
+  .ms-storyboard-section { max-width: 100%; }
+  .scene { break-inside: avoid; }
 }

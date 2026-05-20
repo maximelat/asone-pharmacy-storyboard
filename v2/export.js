@@ -42,7 +42,7 @@ function buildCompliancePack(cast = 'default') {
     exportVersion: EXPORT_VERSION,
     exportedAt: new Date().toISOString(),
     project: 'Servier · As One Pharmacy E-Learning · Phase 2',
-    cast: cast === 'es' ? 'ES · Hispanic (Sofia)' : 'EN · Multicultural (Amina)',
+    cast: cast === 'es' ? 'Hispanic (Sofia)' : 'African (Amina)',
     host,
     modules: {
       module0: {
