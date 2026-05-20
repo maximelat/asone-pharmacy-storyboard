@@ -132,6 +132,7 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
   justify-content: center;
   padding: 56px 40px 56px 48px;
   z-index: 2;
+  background: linear-gradient(105deg, var(--navy-deep) 0%, var(--navy) 72%, rgba(36, 34, 106, 0.55) 100%);
 }
 .ms-eyebrow {
   font-family: var(--mono);
@@ -167,15 +168,10 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center right;
+  object-position: 28% center;
 }
 .ms-hero-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, var(--navy) 0%, rgba(36,34,106,0.35) 35%, transparent 70%);
-  z-index: 1;
-  pointer-events: none;
+  display: none;
 }
 @media (max-width: 900px) {
   .ms-hero-inner { grid-template-columns: 1fr; min-height: auto; }
@@ -285,12 +281,117 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.55;
-  filter: saturate(0.85) contrast(1.05);
+  object-position: center top;
+  opacity: 1;
+  filter: none;
+}
+/* takeaway overlay — panneau bas uniquement, image visible en haut */
+.ms-takeaway-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 2;
+  max-height: 78%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 16px 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 12, 42, 0) 0%,
+    rgba(13, 12, 42, 0.82) 18%,
+    rgba(13, 12, 42, 0.97) 100%
+  );
+  color: #fff;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.ms-tk-index {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 4;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+  background: rgba(245, 91, 65, 0.92);
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.ms-tk-kicker {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(245, 91, 65, 0.5);
+  width: 100%;
+}
+.ms-tk-title {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.ms-tk-summary {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 12px;
+  padding-left: 10px;
+  border-left: 3px solid var(--orange);
+}
+.ms-tk-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.ms-tk-list li {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.95);
+  padding: 7px 10px 7px 26px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.ms-tk-list li::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 0.72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 6px rgba(245, 91, 65, 0.6);
+}
+.ms-tk-action {
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffd4ca;
+  padding: 10px 12px;
+  background: rgba(245, 91, 65, 0.22);
+  border-radius: 8px;
+  border: 1px solid rgba(245, 91, 65, 0.4);
+  margin-top: auto;
 }
 .ms-takeaway-card figcaption {
   margin-top: 10px;
-  font-size: 0.76rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--navy);
   text-align: left;
@@ -299,7 +400,7 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
 .ms-takeaway-card figcaption span {
   display: block;
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: 0.65rem;
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--orange);
@@ -467,110 +568,6 @@ em { color: var(--orange); font-style: normal; font-weight: 800; }
 .blurred-rail-inline { margin-top: 48px !important; padding-top: 32px !important; }
 .blurred-rail-inline .rail-overlay h3 { color: var(--navy) !important; }
 .blurred-rail-inline .rail-overlay p { color: var(--muted) !important; }
-
-/* takeaway overlay */
-.ms-takeaway-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 18px 14px 16px;
-  background: linear-gradient(
-    180deg,
-    rgba(13, 12, 42, 0.08) 0%,
-    rgba(13, 12, 42, 0.72) 38%,
-    rgba(13, 12, 42, 0.96) 100%
-  );
-  color: #fff;
-  overflow-y: auto;
-  scrollbar-width: thin;
-}
-.ms-tk-index {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 4;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #fff;
-  background: rgba(245, 91, 65, 0.92);
-  padding: 5px 8px;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-.ms-tk-kicker {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 0.54rem;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
-  margin-bottom: 6px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(245, 91, 65, 0.45);
-  width: 100%;
-}
-.ms-tk-title {
-  display: block;
-  font-size: 0.92rem;
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 8px;
-  color: #fff;
-  letter-spacing: -0.02em;
-}
-.ms-tk-summary {
-  font-size: 0.68rem;
-  line-height: 1.45;
-  color: rgba(255, 255, 255, 0.88);
-  margin-bottom: 10px;
-  padding-left: 8px;
-  border-left: 2px solid var(--orange);
-}
-.ms-tk-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.ms-tk-list li {
-  font-size: 0.64rem;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.92);
-  padding: 5px 8px 5px 22px;
-  position: relative;
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-.ms-tk-list li::before {
-  content: '';
-  position: absolute;
-  left: 8px;
-  top: 0.65em;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--orange);
-  box-shadow: 0 0 6px rgba(245, 91, 65, 0.6);
-}
-.ms-tk-action {
-  font-size: 0.62rem;
-  font-weight: 600;
-  line-height: 1.45;
-  color: #ffd4ca;
-  padding: 8px 10px;
-  background: rgba(245, 91, 65, 0.18);
-  border-radius: 8px;
-  border: 1px solid rgba(245, 91, 65, 0.35);
-  margin-top: auto;
-}
 
 /* infographie */
 .ms-resume-visual { display: block !important; padding: 0; overflow: hidden; border-style: solid; }
